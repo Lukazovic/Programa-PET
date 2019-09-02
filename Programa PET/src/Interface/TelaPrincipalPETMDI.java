@@ -145,7 +145,9 @@ public class TelaPrincipalPETMDI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        JOptionPane.showMessageDialog(null, "Não Disponível ainda !");
+        TelaBuscaEstatisticas telaBuscaEst = new TelaBuscaEstatisticas();
+        //jDesktopPane.add(telaBuscaEst);
+        telaBuscaEst.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
