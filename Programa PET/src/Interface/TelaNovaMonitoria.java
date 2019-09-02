@@ -4,6 +4,8 @@ import javax.swing.table.DefaultTableModel;
 import model.bean.Dados;
 import model.dao.PetDAO;
 import Interface.TelaTabelaDados;
+import java.time.LocalDate;
+import java.time.Month;
 import javax.swing.JOptionPane;
 
 /**
@@ -15,6 +17,8 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
     /**
      * Creates new form TelaNovaMonitoria1
      */
+    
+    String dataString;
     public TelaNovaMonitoria() {
         initComponents();
     }
@@ -63,44 +67,37 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
         jPanel2.setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nova Monitoria");
         jPanel2.add(jLabel7);
         jLabel7.setBounds(120, 120, 175, 32);
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Nome do Segundo Monitor:");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(32, 220, 150, 16);
+        jLabel1.setBounds(32, 220, 130, 14);
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome do Monitor:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(32, 164, 97, 16);
+        jLabel2.setBounds(32, 164, 85, 14);
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Hora:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(70, 430, 40, 16);
+        jLabel3.setBounds(70, 430, 40, 14);
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Data:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(230, 430, 29, 16);
+        jLabel4.setBounds(230, 430, 27, 14);
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Local:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(180, 380, 33, 16);
+        jLabel5.setBounds(180, 380, 28, 14);
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET.jpg"))); // NOI18N
         jPanel2.add(jLabel6);
         jLabel6.setBounds(150, 10, 118, 114);
 
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("RA Aluno:");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(30, 380, 53, 16);
+        jLabel8.setBounds(30, 380, 48, 14);
 
         txtNomeMonitor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,14 +105,13 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(txtNomeMonitor);
-        txtNomeMonitor.setBounds(32, 186, 340, 28);
+        txtNomeMonitor.setBounds(32, 186, 340, 20);
         jPanel2.add(txtNomeSegMonitor);
-        txtNomeSegMonitor.setBounds(32, 242, 340, 28);
+        txtNomeSegMonitor.setBounds(32, 242, 340, 20);
         jPanel2.add(txtLocal);
-        txtLocal.setBounds(180, 400, 190, 28);
+        txtLocal.setBounds(180, 400, 190, 20);
 
         jLabel14.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Ano - Mês - Dia");
         jPanel2.add(jLabel14);
         jLabel14.setBounds(230, 480, 72, 14);
@@ -129,15 +125,20 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(btnSalvarDados);
-        btnSalvarDados.setBounds(300, 500, 69, 28);
+        btnSalvarDados.setBounds(300, 500, 69, 23);
 
         try {
-            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
+            txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDataActionPerformed(evt);
+            }
+        });
         jPanel2.add(txtData);
-        txtData.setBounds(230, 450, 80, 28);
+        txtData.setBounds(230, 450, 80, 20);
 
         try {
             txtHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
@@ -145,12 +146,11 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         jPanel2.add(txtHora);
-        txtHora.setBounds(70, 450, 50, 28);
+        txtHora.setBounds(70, 450, 50, 20);
 
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Nome do Aluno:");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(32, 276, 88, 16);
+        jLabel9.setBounds(32, 276, 76, 14);
 
         txtNomeAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,21 +158,19 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
             }
         });
         jPanel2.add(txtNomeAluno);
-        txtNomeAluno.setBounds(32, 298, 340, 28);
+        txtNomeAluno.setBounds(32, 298, 340, 20);
 
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Curso do Aluno:");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(32, 332, 88, 16);
+        jLabel10.setBounds(32, 332, 77, 14);
         jPanel2.add(txtCursoAluno);
-        txtCursoAluno.setBounds(30, 350, 190, 28);
+        txtCursoAluno.setBounds(30, 350, 190, 20);
         jPanel2.add(txtMateria);
-        txtMateria.setBounds(240, 350, 130, 28);
+        txtMateria.setBounds(240, 350, 130, 20);
 
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Matéria:");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(240, 330, 43, 16);
+        jLabel11.setBounds(240, 330, 40, 14);
 
         try {
             txtRA.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
@@ -180,7 +178,7 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
         jPanel2.add(txtRA);
-        txtRA.setBounds(30, 400, 127, 28);
+        txtRA.setBounds(30, 400, 127, 20);
 
         jScrollPane1.setViewportView(jPanel2);
 
@@ -215,8 +213,18 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
         if(txtNomeMonitor.getText().isEmpty() || txtMateria.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Erro: Campo obrigatório não preenchido \nCampos Obrigatórios: Nome do Monitor; Matéria");
         }else{
+            this.dataString = txtData.getText();
+            String[] dataSeparada = this.dataString.split("/");
+            
+            LocalDate hoje = LocalDate.of(Integer.parseInt(dataSeparada[2]), Integer.parseInt(dataSeparada[1]), Integer.parseInt(dataSeparada[0]));
+            
+            
             Dados d = new Dados();
             PetDAO dao = new PetDAO();
+            
+            
+            
+            
             
             d.setNomeMonitor1(txtNomeMonitor.getText());
             d.setNomeMonitor2(txtNomeSegMonitor.getText());
@@ -226,7 +234,7 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
             d.setRaAluno(Integer.parseInt(txtRA.getText()));
             d.setLocalMonitoria(txtLocal.getText());
             d.setHoraMonitoria(txtHora.getText());
-            d.setDataMonitoria(txtData.getText());
+            d.setDataMonitoria(hoje.toString());
         
             dao.create(d);
         
@@ -245,6 +253,10 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
         
         //readTabelaDados();
     }//GEN-LAST:event_btnSalvarDadosActionPerformed
+
+    private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDataActionPerformed
 
     
 //    public void readTabelaDados (){
