@@ -3,6 +3,10 @@ package Interface;
 import javax.swing.table.DefaultTableModel;
 import Interface.TelaTabelaDados;
 import java.awt.event.KeyEvent;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import model.bean.Dados;
 import model.dao.PetDAO;
 
@@ -26,8 +30,24 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         readTabelaDados();
     }
     
+    public String converterData (String dataS){
+        
+        String[] dataConvertida = dataS.split("-");
+        
+        //LocalDate dataCerta = LocalDate.of(Integer.parseInt(dataConvertida[2]), Integer.parseInt(dataConvertida[1]), Integer.parseInt(dataConvertida[0]));
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        
+        Calendar data = new GregorianCalendar(Integer.parseInt(dataConvertida[0]), (Integer.parseInt(dataConvertida[1])-1), Integer.parseInt(dataConvertida[2]));
+        
+        //return dataCerta.toString();
+        return sdf.format(data.getTime());
+    }
+    
     public void readTabelaDados (){
         //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        
+        String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
@@ -44,13 +64,14 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
-                d.getDataMonitoria()
+                dataCerta = converterData(d.getDataMonitoria())
             });
         }
     }
     
     public void readTabelaDadosForMonitor1 (String monitor){
         //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
@@ -67,7 +88,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
-                d.getDataMonitoria()
+                dataCerta = converterData(d.getDataMonitoria())
             });
         }
     }
@@ -75,6 +96,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
     
     public void readTabelaDadosForMonitor2 (String monitor){
         //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         //dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
@@ -91,13 +113,14 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
-                d.getDataMonitoria()
+                dataCerta = converterData(d.getDataMonitoria())
             });
         }
     }
     
     public void readTabelaDadosForCurso (String curso){
         //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
@@ -114,13 +137,14 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
-                d.getDataMonitoria()
+                dataCerta = converterData(d.getDataMonitoria())
             });
         }
     }
     
     public void readTabelaDadosForMateria (String materia){
         //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
@@ -137,13 +161,14 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
-                d.getDataMonitoria()
+                dataCerta = converterData(d.getDataMonitoria())
             });
         }
     }
     
     public void readTabelaDadosForData (String data){
         //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
@@ -160,7 +185,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
-                d.getDataMonitoria()
+                dataCerta = converterData(d.getDataMonitoria())
             });
         }
     }
