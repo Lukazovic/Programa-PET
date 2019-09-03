@@ -256,7 +256,7 @@ public class PetDAO {
         
         try {
             stmt = con.prepareStatement("SELECT * FROM dadospet WHERE dataMonitoria LIKE ?");
-            stmt.setString(1, "%" +data +"%");
+            stmt.setString(1, data +"%");
             
             rs = stmt.executeQuery();
             
@@ -286,4 +286,31 @@ public class PetDAO {
         return listaDados;
     }
     
+    
+    public ArrayList<Integer> contarNumerosPorMes (List<Dados> listaDados){
+        
+        ArrayList<Integer> contMes = new ArrayList<Integer>(12);
+        
+        
+        
+        int t=0;
+        while (t!=12){
+            int contador = 0;
+            Dados dado = new Dados();
+            for(int i=0; i<listaDados.size(); i++){
+                dado = listaDados.remove(0);
+                
+                String[] dataConvertida = dado.getDataMonitoria().toString().split("-");
+                
+                if(Integer.parseInt(dataConvertida[1]) == (t+1)){
+                    contador++;
+                }
+                
+            }
+            contMes.add(contador);
+            t++;
+        }
+        
+        return contMes;
+    }
 }
