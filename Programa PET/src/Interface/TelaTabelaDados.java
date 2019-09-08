@@ -251,33 +251,36 @@ public class TelaTabelaDados extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtBuscaMonitor = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnBuscaMonitor = new javax.swing.JButton();
-        txtBuscaCurso = new javax.swing.JTextField();
-        btnBuscarCurso = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtBuscaMateria = new javax.swing.JTextField();
-        btnBuscaMateria = new javax.swing.JButton();
-        btnBuscaMes = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        txtBuscaMonitor = new javax.swing.JTextField();
+        btnBuscaMonitor = new javax.swing.JButton();
+        txtBuscaCurso = new javax.swing.JTextField();
+        btnBuscarCurso = new javax.swing.JButton();
+        txtBuscaMateria = new javax.swing.JTextField();
+        btnBuscaMateria = new javax.swing.JButton();
+        btnBuscaMes = new javax.swing.JButton();
         txtBuscaData = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dados - Monitoria PET Física");
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(null);
 
-        jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setForeground(new java.awt.Color(249, 249, 249));
-        jScrollPane1.setToolTipText("");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
+        jScrollPane3.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane3.setForeground(new java.awt.Color(249, 249, 249));
+        jScrollPane3.setToolTipText("");
 
         jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -299,31 +302,49 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane3.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(6, 156, 893, 187);
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(222, 16, 118, 114);
+        jPanel2.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 130, 893, 187);
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel2.setText("Dados - Monitoria PET Física");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(358, 59, 334, 32);
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(420, 60, 334, 32);
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET2.png"))); // NOI18N
+        jPanel2.add(jLabel1);
+        jLabel1.setBounds(240, 10, 118, 118);
+
+        jLabel3.setText("Buscar por Monitor:");
+        jPanel2.add(jLabel3);
+        jLabel3.setBounds(200, 330, 120, 20);
+
+        jLabel4.setText("Buscar por Curso:");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(200, 390, 120, 14);
+
+        jLabel5.setText("Buscar por Matéria:");
+        jPanel2.add(jLabel5);
+        jLabel5.setBounds(510, 330, 120, 20);
+
+        jLabel6.setText("Buscar por data:");
+        jPanel2.add(jLabel6);
+        jLabel6.setBounds(510, 390, 120, 14);
+
+        jLabel7.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
+        jLabel7.setText("Ano - Mês - Dia");
+        jPanel2.add(jLabel7);
+        jLabel7.setBounds(530, 440, 90, 14);
 
         txtBuscaMonitor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscaMonitorKeyPressed(evt);
             }
         });
-        getContentPane().add(txtBuscaMonitor);
-        txtBuscaMonitor.setBounds(210, 380, 125, 30);
-
-        jLabel3.setText("Buscar por Monitor:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(210, 360, 120, 14);
+        jPanel2.add(txtBuscaMonitor);
+        txtBuscaMonitor.setBounds(200, 350, 125, 30);
 
         btnBuscaMonitor.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscaMonitor.setForeground(new java.awt.Color(255, 255, 255));
@@ -333,16 +354,16 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 btnBuscaMonitorActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscaMonitor);
-        btnBuscaMonitor.setBounds(340, 380, 80, 30);
+        jPanel2.add(btnBuscaMonitor);
+        btnBuscaMonitor.setBounds(340, 350, 80, 30);
 
         txtBuscaCurso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscaCursoKeyPressed(evt);
             }
         });
-        getContentPane().add(txtBuscaCurso);
-        txtBuscaCurso.setBounds(210, 440, 125, 30);
+        jPanel2.add(txtBuscaCurso);
+        txtBuscaCurso.setBounds(200, 410, 125, 30);
 
         btnBuscarCurso.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscarCurso.setForeground(new java.awt.Color(255, 255, 255));
@@ -352,20 +373,16 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 btnBuscarCursoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscarCurso);
-        btnBuscarCurso.setBounds(340, 440, 80, 30);
-
-        jLabel4.setText("Buscar por Curso:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(210, 420, 120, 14);
+        jPanel2.add(btnBuscarCurso);
+        btnBuscarCurso.setBounds(340, 410, 80, 30);
 
         txtBuscaMateria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscaMateriaKeyPressed(evt);
             }
         });
-        getContentPane().add(txtBuscaMateria);
-        txtBuscaMateria.setBounds(500, 380, 125, 30);
+        jPanel2.add(txtBuscaMateria);
+        txtBuscaMateria.setBounds(510, 350, 120, 30);
 
         btnBuscaMateria.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscaMateria.setForeground(new java.awt.Color(255, 255, 255));
@@ -375,8 +392,8 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 btnBuscaMateriaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscaMateria);
-        btnBuscaMateria.setBounds(630, 380, 80, 30);
+        jPanel2.add(btnBuscaMateria);
+        btnBuscaMateria.setBounds(650, 350, 80, 30);
 
         btnBuscaMes.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscaMes.setForeground(new java.awt.Color(255, 255, 255));
@@ -386,52 +403,23 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 btnBuscaMesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBuscaMes);
-        btnBuscaMes.setBounds(630, 440, 80, 30);
-
-        jLabel5.setText("Buscar por Matéria:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(500, 360, 120, 14);
-
-        jLabel6.setText("Buscar por data:");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(500, 420, 120, 14);
-
-        jLabel7.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        jLabel7.setText("Ano - Mês - Dia");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(520, 470, 90, 14);
+        jPanel2.add(btnBuscaMes);
+        btnBuscaMes.setBounds(650, 410, 80, 30);
 
         txtBuscaData.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscaDataKeyPressed(evt);
             }
         });
-        getContentPane().add(txtBuscaData);
-        txtBuscaData.setBounds(500, 440, 120, 30);
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 10, 10);
+        jPanel2.add(txtBuscaData);
+        txtBuscaData.setBounds(510, 410, 120, 30);
 
-        setSize(new java.awt.Dimension(921, 534));
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 920, 470);
+
+        setSize(new java.awt.Dimension(927, 511));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnBuscaMonitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaMonitorActionPerformed
-        readTabelaDadosForMonitor1(txtBuscaMonitor.getText());
-        readTabelaDadosForMonitor2(txtBuscaMonitor.getText());
-    }//GEN-LAST:event_btnBuscaMonitorActionPerformed
-
-    private void btnBuscarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCursoActionPerformed
-        readTabelaDadosForCurso(txtBuscaCurso.getText());
-    }//GEN-LAST:event_btnBuscarCursoActionPerformed
-
-    private void btnBuscaMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaMateriaActionPerformed
-        readTabelaDadosForMateria(txtBuscaMateria.getText());
-    }//GEN-LAST:event_btnBuscaMateriaActionPerformed
-
-    private void btnBuscaMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaMesActionPerformed
-        readTabelaDadosForData(txtBuscaData.getText());
-    }//GEN-LAST:event_btnBuscaMesActionPerformed
 
     private void txtBuscaMonitorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaMonitorKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -442,17 +430,34 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtBuscaMonitorKeyPressed
 
+    private void btnBuscaMonitorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaMonitorActionPerformed
+        readTabelaDadosForMonitor1(txtBuscaMonitor.getText());
+        readTabelaDadosForMonitor2(txtBuscaMonitor.getText());
+    }//GEN-LAST:event_btnBuscaMonitorActionPerformed
+
     private void txtBuscaCursoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaCursoKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             readTabelaDadosForCurso(txtBuscaCurso.getText());
         }
     }//GEN-LAST:event_txtBuscaCursoKeyPressed
 
+    private void btnBuscarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarCursoActionPerformed
+        readTabelaDadosForCurso(txtBuscaCurso.getText());
+    }//GEN-LAST:event_btnBuscarCursoActionPerformed
+
     private void txtBuscaMateriaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaMateriaKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             readTabelaDadosForMateria(txtBuscaMateria.getText());
         }
     }//GEN-LAST:event_txtBuscaMateriaKeyPressed
+
+    private void btnBuscaMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaMateriaActionPerformed
+        readTabelaDadosForMateria(txtBuscaMateria.getText());
+    }//GEN-LAST:event_btnBuscaMateriaActionPerformed
+
+    private void btnBuscaMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaMesActionPerformed
+        readTabelaDadosForData(txtBuscaData.getText());
+    }//GEN-LAST:event_btnBuscaMesActionPerformed
 
     private void txtBuscaDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscaDataKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -507,8 +512,9 @@ public class TelaTabelaDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtBuscaCurso;
     private javax.swing.JTextField txtBuscaData;
