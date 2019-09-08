@@ -71,6 +71,11 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Administrador");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2);
         jButton2.setBounds(490, 170, 160, 50);
 
@@ -210,6 +215,11 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
         TelaBuscaEstatisticas telaBuscaEst = new TelaBuscaEstatisticas();
         telaBuscaEst.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        TelaAutenticacaoADM telaAutADM = new TelaAutenticacaoADM();
+        telaAutADM.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
