@@ -49,6 +49,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Estatísticas - PET");
+        setResizable(false);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -158,8 +159,8 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnoMesActionPerformed
 
     private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
-        TelaTabelaEstMes telaE = new TelaTabelaEstMes(txtAnoMes.getText());
-        //jDesktopPane.add(telaBuscaEst);
+        TelaEstMesTabela telaE = new TelaEstMesTabela(txtAnoMes.getText());
+        //TelaTabelaEstMes telaE = new TelaTabelaEstMes(txtAnoMes.getText());
         telaE.setVisible(true);
     }//GEN-LAST:event_btnTabelaActionPerformed
 

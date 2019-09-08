@@ -343,7 +343,7 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
     
     private boolean validateHora(){
         if(!jRadioButtonHora.isSelected()){
-            if(Integer.parseInt(txtData.getText()) != 0 && Integer.parseInt(txtData.getText()) != 5){
+            if(txtHora.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "ERRO: Hora inválida!");
                 return false;
             }
@@ -353,11 +353,12 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
     
     private boolean validateData(){
         if(!jRadioButtonHora.isSelected()){
-            if(Integer.parseInt(txtData.getText()) != 0 && Integer.parseInt(txtData.getText()) != 10){
+            if(txtData.getText().isEmpty()){
                 JOptionPane.showMessageDialog(null, "ERRO: Data não inserida corretamente!");
                 return false;
-            }else if (!validateIfDateIsAfter()){
+            }else if (validateIfDateIsAfter()){
                 JOptionPane.showMessageDialog(null, "ERRO: Data inválida!");
+                return false;
             }
         }
         return true;
