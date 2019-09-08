@@ -34,6 +34,8 @@ import javax.persistence.Transient;
     , @NamedQuery(name = "Dadospet.findByContagemMonitorias", query = "SELECT d FROM Dadospet d WHERE d.contagemMonitorias = :contagemMonitorias")
     , @NamedQuery(name = "Dadospet.findByNomeMonitor1", query = "SELECT d FROM Dadospet d WHERE d.nomeMonitor1 = :nomeMonitor1")
     , @NamedQuery(name = "Dadospet.findByNomeMonitor2", query = "SELECT d FROM Dadospet d WHERE d.nomeMonitor2 = :nomeMonitor2")
+    , @NamedQuery(name = "Dadospet.findByNomeMonitor3", query = "SELECT d FROM Dadospet d WHERE d.nomeMonitor3 = :nomeMonitor3")
+    , @NamedQuery(name = "Dadospet.findByNomeMonitor4", query = "SELECT d FROM Dadospet d WHERE d.nomeMonitor4 = :nomeMonitor4")
     , @NamedQuery(name = "Dadospet.findByNomeAluno", query = "SELECT d FROM Dadospet d WHERE d.nomeAluno = :nomeAluno")
     , @NamedQuery(name = "Dadospet.findByCursoAluno", query = "SELECT d FROM Dadospet d WHERE d.cursoAluno = :cursoAluno")
     , @NamedQuery(name = "Dadospet.findByMateriaAluno", query = "SELECT d FROM Dadospet d WHERE d.materiaAluno = :materiaAluno")
@@ -56,6 +58,10 @@ public class Dadospet implements Serializable {
     private String nomeMonitor1;
     @Column(name = "nomeMonitor2")
     private String nomeMonitor2;
+    @Column(name = "nomeMonitor3")
+    private String nomeMonitor3;
+    @Column(name = "nomeMonitor4")
+    private String nomeMonitor4;
     @Column(name = "nomeAluno")
     private String nomeAluno;
     @Column(name = "cursoAluno")
@@ -108,6 +114,26 @@ public class Dadospet implements Serializable {
         String oldNomeMonitor2 = this.nomeMonitor2;
         this.nomeMonitor2 = nomeMonitor2;
         changeSupport.firePropertyChange("nomeMonitor2", oldNomeMonitor2, nomeMonitor2);
+    }
+    
+    public String getNomeMonitor3() {
+        return nomeMonitor3;
+    }
+
+    public void setNomeMonitor3(String nomeMonitor3) {
+        String oldNomeMonitor3 = this.nomeMonitor3;
+        this.nomeMonitor3 = nomeMonitor3;
+        changeSupport.firePropertyChange("nomeMonitor3", oldNomeMonitor3, nomeMonitor3);
+    }
+
+    public String getNomeMonitor4() {
+        return nomeMonitor4;
+    }
+
+    public void setNomeMonitor4(String nomeMonitor4) {
+        String oldNomeMonitor4 = this.nomeMonitor4;
+        this.nomeMonitor4 = nomeMonitor4;
+        changeSupport.firePropertyChange("nomeMonitor4", oldNomeMonitor4, nomeMonitor4);
     }
 
     public String getNomeAluno() {
@@ -212,5 +238,4 @@ public class Dadospet implements Serializable {
     public void removePropertyChangeListener(PropertyChangeListener listener) {
         changeSupport.removePropertyChangeListener(listener);
     }
-    
 }

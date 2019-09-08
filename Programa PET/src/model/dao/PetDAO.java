@@ -12,6 +12,9 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.bean.Dados;
 import java.time.LocalDate;
+import model.bean.Cursos;
+import model.bean.Materias;
+import model.bean.Monitores;
 
 /**
  *
@@ -25,16 +28,17 @@ public class PetDAO {
         PreparedStatement stmt = null;
         
         try {
-            stmt = con.prepareStatement("INSERT INTO dadospet (nomeMonitor1,nomeMonitor2,nomeAluno,cursoAluno,materiaAluno,raAluno,localMonitoria,horaMonitoria,dataMonitoria)VALUES(?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO dadospet (nomeMonitor1,nomeMonitor2,nomeMonitor3, nomeMonitor4, nomeAluno,cursoAluno,materiaAluno,localMonitoria,horaMonitoria,dataMonitoria)VALUES(?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, d.getNomeMonitor1());
             stmt.setString(2, d.getNomeMonitor2());
-            stmt.setString(3, d.getNomeAluno());
-            stmt.setString(4, d.getCursoAluno());
-            stmt.setString(5, d.getMateriaAluno());
-            stmt.setInt(6, d.getRaAluno());
-            stmt.setString(7, d.getLocalMonitoria());
-            stmt.setString(8, d.getHoraMonitoria());
-            stmt.setString(9, d.getDataMonitoria());
+            stmt.setString(3, d.getNomeMonitor3());
+            stmt.setString(4, d.getNomeMonitor4());
+            stmt.setString(5, d.getNomeAluno());
+            stmt.setString(6, d.getCursoAluno());
+            stmt.setString(7, d.getMateriaAluno());
+            stmt.setString(8, d.getLocalMonitoria());
+            stmt.setString(9, d.getHoraMonitoria());
+            stmt.setString(10, d.getDataMonitoria());
             
             stmt.executeUpdate();
             
@@ -64,10 +68,11 @@ public class PetDAO {
                 dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
                 dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
                 dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
                 dado.setNomeAluno(rs.getString("nomeAluno"));
                 dado.setCursoAluno(rs.getString("cursoAluno"));
                 dado.setMateriaAluno(rs.getString("materiaAluno"));
-                dado.setRaAluno(rs.getInt("raAluno"));
                 dado.setLocalMonitoria(rs.getString("localMonitoria"));
                 dado.setHoraMonitoria(rs.getString("horaMonitoria"));
                 dado.setDataMonitoria(rs.getString("dataMonitoria"));
@@ -104,10 +109,11 @@ public class PetDAO {
                 dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
                 dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
                 dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
                 dado.setNomeAluno(rs.getString("nomeAluno"));
                 dado.setCursoAluno(rs.getString("cursoAluno"));
                 dado.setMateriaAluno(rs.getString("materiaAluno"));
-                dado.setRaAluno(rs.getInt("raAluno"));
                 dado.setLocalMonitoria(rs.getString("localMonitoria"));
                 dado.setHoraMonitoria(rs.getString("horaMonitoria"));
                 dado.setDataMonitoria(rs.getString("dataMonitoria"));
@@ -145,10 +151,93 @@ public class PetDAO {
                 dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
                 dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
                 dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
                 dado.setNomeAluno(rs.getString("nomeAluno"));
                 dado.setCursoAluno(rs.getString("cursoAluno"));
                 dado.setMateriaAluno(rs.getString("materiaAluno"));
-                dado.setRaAluno(rs.getInt("raAluno"));
+                dado.setLocalMonitoria(rs.getString("localMonitoria"));
+                dado.setHoraMonitoria(rs.getString("horaMonitoria"));
+                dado.setDataMonitoria(rs.getString("dataMonitoria"));
+                
+                listaDados.add(dado);
+            }
+            
+                    } catch (SQLException ex) {
+            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return listaDados;
+    }
+    
+    public List<Dados> searchMonitor3 (String moni1){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Dados> listaDados = new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE nomeMonitor3 LIKE ?");
+            stmt.setString(1, "%" +moni1 +"%");
+            
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                Dados dado = new Dados();
+                
+                dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
+                dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
+                dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
+                dado.setNomeAluno(rs.getString("nomeAluno"));
+                dado.setCursoAluno(rs.getString("cursoAluno"));
+                dado.setMateriaAluno(rs.getString("materiaAluno"));
+                dado.setLocalMonitoria(rs.getString("localMonitoria"));
+                dado.setHoraMonitoria(rs.getString("horaMonitoria"));
+                dado.setDataMonitoria(rs.getString("dataMonitoria"));
+                
+                listaDados.add(dado);
+            }
+            
+                    } catch (SQLException ex) {
+            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return listaDados;
+    }
+    
+    public List<Dados> searchMonitor4 (String moni1){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Dados> listaDados = new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE nomeMonitor4 LIKE ?");
+            stmt.setString(1, "%" +moni1 +"%");
+            
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                Dados dado = new Dados();
+                
+                dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
+                dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
+                dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
+                dado.setNomeAluno(rs.getString("nomeAluno"));
+                dado.setCursoAluno(rs.getString("cursoAluno"));
+                dado.setMateriaAluno(rs.getString("materiaAluno"));
                 dado.setLocalMonitoria(rs.getString("localMonitoria"));
                 dado.setHoraMonitoria(rs.getString("horaMonitoria"));
                 dado.setDataMonitoria(rs.getString("dataMonitoria"));
@@ -185,10 +274,11 @@ public class PetDAO {
                 dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
                 dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
                 dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
                 dado.setNomeAluno(rs.getString("nomeAluno"));
                 dado.setCursoAluno(rs.getString("cursoAluno"));
                 dado.setMateriaAluno(rs.getString("materiaAluno"));
-                dado.setRaAluno(rs.getInt("raAluno"));
                 dado.setLocalMonitoria(rs.getString("localMonitoria"));
                 dado.setHoraMonitoria(rs.getString("horaMonitoria"));
                 dado.setDataMonitoria(rs.getString("dataMonitoria"));
@@ -225,10 +315,11 @@ public class PetDAO {
                 dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
                 dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
                 dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
                 dado.setNomeAluno(rs.getString("nomeAluno"));
                 dado.setCursoAluno(rs.getString("cursoAluno"));
                 dado.setMateriaAluno(rs.getString("materiaAluno"));
-                dado.setRaAluno(rs.getInt("raAluno"));
                 dado.setLocalMonitoria(rs.getString("localMonitoria"));
                 dado.setHoraMonitoria(rs.getString("horaMonitoria"));
                 dado.setDataMonitoria(rs.getString("dataMonitoria"));
@@ -266,10 +357,11 @@ public class PetDAO {
                 dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
                 dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
                 dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
                 dado.setNomeAluno(rs.getString("nomeAluno"));
                 dado.setCursoAluno(rs.getString("cursoAluno"));
                 dado.setMateriaAluno(rs.getString("materiaAluno"));
-                dado.setRaAluno(rs.getInt("raAluno"));
                 dado.setLocalMonitoria(rs.getString("localMonitoria"));
                 dado.setHoraMonitoria(rs.getString("horaMonitoria"));
                 dado.setDataMonitoria(rs.getString("dataMonitoria"));
@@ -312,5 +404,126 @@ public class PetDAO {
         }
         
         return contMes;
+    }
+    
+    public Dados readLastMonitoria (){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        Dados dado = new Dados();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM dadospet");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                dado.setContagemMonitoria(rs.getInt("contagemMonitorias"));
+                dado.setNomeMonitor1(rs.getString("nomeMonitor1"));
+                dado.setNomeMonitor2(rs.getString("nomeMonitor2"));
+                dado.setNomeMonitor3(rs.getString("nomeMonitor3"));
+                dado.setNomeMonitor4(rs.getString("nomeMonitor4"));
+                dado.setNomeAluno(rs.getString("nomeAluno"));
+                dado.setCursoAluno(rs.getString("cursoAluno"));
+                dado.setMateriaAluno(rs.getString("materiaAluno"));
+                dado.setLocalMonitoria(rs.getString("localMonitoria"));
+                dado.setHoraMonitoria(rs.getString("horaMonitoria"));
+                dado.setDataMonitoria(rs.getString("dataMonitoria"));
+            }
+            
+                    } catch (SQLException ex) {
+            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return dado;
+    }
+    
+    public List<Monitores> readMonitores (){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Monitores> listaMonitores = new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM monitorespet");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                Monitores monitor = new Monitores();
+                
+                monitor.setRAmonitor(rs.getInt("RA"));
+                monitor.setNomeMonitor(rs.getString("nomeMonitor"));
+                
+                listaMonitores.add(monitor);
+            }
+            
+                    } catch (SQLException ex) {
+            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        
+        return listaMonitores;
+    }
+    
+    public List<Cursos> readCursos (){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Cursos> listaCursos = new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM cursospet");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                Cursos curso = new Cursos();
+                
+                curso.setCursoCadastrado(rs.getString("cursoCadastrado"));
+                
+                listaCursos.add(curso);
+            }
+            
+                    } catch (SQLException ex) {
+            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return listaCursos;
+    }
+    
+    public List<Materias> readMaterias (){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        
+        List<Materias> listaMaterias = new ArrayList<>();
+        
+        try {
+            stmt = con.prepareStatement("SELECT * FROM materiasPET");
+            rs = stmt.executeQuery();
+            
+            while (rs.next()){
+                Materias materia = new Materias();
+                
+                materia.setMateriasCadastradas(rs.getString("materiaCadastrada"));
+                
+                listaMaterias.add(materia);
+            }
+            
+                    } catch (SQLException ex) {
+            Logger.getLogger(PetDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt, rs);
+        }
+        return listaMaterias;
     }
 }

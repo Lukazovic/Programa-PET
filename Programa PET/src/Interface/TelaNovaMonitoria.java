@@ -231,7 +231,7 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
             d.setNomeAluno(txtNomeAluno.getText());
             d.setCursoAluno(txtCursoAluno.getText());
             d.setMateriaAluno(txtMateria.getText());
-            d.setRaAluno(Integer.parseInt(txtRA.getText()));
+            //d.setRaAluno(Integer.parseInt(txtRA.getText()));
             d.setLocalMonitoria(txtLocal.getText());
             d.setHoraMonitoria(txtHora.getText());
             d.setDataMonitoria(hoje.toString());
@@ -258,19 +258,6 @@ public class TelaNovaMonitoria extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDataActionPerformed
 
-    
-//    public void readTabelaDados (){
-//        DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
-//        
-//        PetDAO pdao =  new PetDAO();
-//        
-//        for (Dados d: pdao.read()){
-//            
-//            dtmDados.addRow(new Object[]{
-//                
-//            });
-//        }
-//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalvarDados;

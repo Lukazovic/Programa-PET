@@ -10,10 +10,11 @@ public class Dados {
     private int contagemMonitoria;
     private String nomeMonitor1;
     private String nomeMonitor2;
+    private String nomeMonitor3;
+    private String nomeMonitor4;
     private String nomeAluno;
     private String cursoAluno;
     private String materiaAluno;
-    private int raAluno;
     private String localMonitoria;
     private String horaMonitoria;
     private String dataMonitoria;
@@ -66,14 +67,6 @@ public class Dados {
         this.materiaAluno = materiaAluno;
     }
 
-    public int getRaAluno() {
-        return raAluno;
-    }
-
-    public void setRaAluno(int raAluno) {
-        this.raAluno = raAluno;
-    }
-
     public String getLocalMonitoria() {
         return localMonitoria;
     }
@@ -96,6 +89,22 @@ public class Dados {
 
     public void setDataMonitoria(String dataMonitoria) {
         this.dataMonitoria = dataMonitoria;
+    }
+
+    public String getNomeMonitor3() {
+        return nomeMonitor3;
+    }
+
+    public void setNomeMonitor3(String nomeMonitor3) {
+        this.nomeMonitor3 = nomeMonitor3;
+    }
+
+    public String getNomeMonitor4() {
+        return nomeMonitor4;
+    }
+
+    public void setNomeMonitor4(String nomeMonitor4) {
+        this.nomeMonitor4 = nomeMonitor4;
     }
     
     

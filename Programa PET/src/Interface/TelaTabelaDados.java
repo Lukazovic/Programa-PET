@@ -18,15 +18,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
 
     private Object btnSalvarDados;
 
-    //private Object btnSalvarDados;
-
     /**
      * Creates new form TelaTabelaDados
      */
     public TelaTabelaDados() {
         initComponents();
-        //jScrollPane1.getVerticalScrollBar().setUI(new RSScrollBar());
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         readTabelaDados();
     }
     
@@ -58,10 +54,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getContagemMonitoria(),
                 d.getNomeMonitor1(),
                 d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
                 d.getNomeAluno(),
                 d.getCursoAluno(),
                 d.getMateriaAluno(),
-                d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
                 dataCerta = converterData(d.getDataMonitoria())
@@ -82,10 +79,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getContagemMonitoria(),
                 d.getNomeMonitor1(),
                 d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
                 d.getNomeAluno(),
                 d.getCursoAluno(),
                 d.getMateriaAluno(),
-                d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
                 dataCerta = converterData(d.getDataMonitoria())
@@ -107,10 +105,61 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getContagemMonitoria(),
                 d.getNomeMonitor1(),
                 d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
                 d.getNomeAluno(),
                 d.getCursoAluno(),
                 d.getMateriaAluno(),
-                d.getRaAluno(),
+                d.getLocalMonitoria(),
+                d.getHoraMonitoria(),
+                dataCerta = converterData(d.getDataMonitoria())
+            });
+        }
+    }
+    
+    public void readTabelaDadosForMonitor3 (String monitor){
+        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        String dataCerta;
+        DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
+        //dtmDados.setNumRows(0);
+        PetDAO pdao =  new PetDAO();
+        
+        for (Dados d: pdao.searchMonitor3(monitor)){
+            
+            dtmDados.addRow(new Object[]{
+                d.getContagemMonitoria(),
+                d.getNomeMonitor1(),
+                d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
+                d.getNomeAluno(),
+                d.getCursoAluno(),
+                d.getMateriaAluno(),
+                d.getLocalMonitoria(),
+                d.getHoraMonitoria(),
+                dataCerta = converterData(d.getDataMonitoria())
+            });
+        }
+    }
+    
+    public void readTabelaDadosForMonitor4 (String monitor){
+        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
+        String dataCerta;
+        DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
+        //dtmDados.setNumRows(0);
+        PetDAO pdao =  new PetDAO();
+        
+        for (Dados d: pdao.searchMonitor4(monitor)){
+            
+            dtmDados.addRow(new Object[]{
+                d.getContagemMonitoria(),
+                d.getNomeMonitor1(),
+                d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
+                d.getNomeAluno(),
+                d.getCursoAluno(),
+                d.getMateriaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
                 dataCerta = converterData(d.getDataMonitoria())
@@ -131,10 +180,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getContagemMonitoria(),
                 d.getNomeMonitor1(),
                 d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
                 d.getNomeAluno(),
                 d.getCursoAluno(),
                 d.getMateriaAluno(),
-                d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
                 dataCerta = converterData(d.getDataMonitoria())
@@ -155,10 +205,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getContagemMonitoria(),
                 d.getNomeMonitor1(),
                 d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
                 d.getNomeAluno(),
                 d.getCursoAluno(),
                 d.getMateriaAluno(),
-                d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
                 dataCerta = converterData(d.getDataMonitoria())
@@ -179,10 +230,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
                 d.getContagemMonitoria(),
                 d.getNomeMonitor1(),
                 d.getNomeMonitor2(),
+                d.getNomeMonitor3(),
+                d.getNomeMonitor4(),
                 d.getNomeAluno(),
                 d.getCursoAluno(),
                 d.getMateriaAluno(),
-                d.getRaAluno(),
                 d.getLocalMonitoria(),
                 d.getHoraMonitoria(),
                 dataCerta = converterData(d.getDataMonitoria())
@@ -216,6 +268,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtBuscaData = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Dados - Monitoria PET Física");
@@ -229,17 +282,17 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         jTable1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Contagem", "Monitor", "Monitor", "Aluno", "Curso Aluno", "Materia", "RA Aluno", "Local", "Hora", "Data"
+                "Contagem", "Monitor", "Monitor 2", "Monitor 3", "Monitor 4", "Aluno", "Curso Aluno", "Materia", "Local", "Hora", "Data"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -256,7 +309,6 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         jLabel1.setBounds(222, 16, 118, 114);
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Dados - Monitoria PET Física");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(358, 59, 334, 32);
@@ -267,12 +319,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtBuscaMonitor);
-        txtBuscaMonitor.setBounds(210, 380, 125, 28);
+        txtBuscaMonitor.setBounds(210, 380, 125, 30);
 
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Buscar por Monitor:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(220, 360, 106, 16);
+        jLabel3.setBounds(210, 360, 120, 14);
 
         btnBuscaMonitor.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscaMonitor.setForeground(new java.awt.Color(255, 255, 255));
@@ -283,7 +334,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBuscaMonitor);
-        btnBuscaMonitor.setBounds(340, 380, 67, 28);
+        btnBuscaMonitor.setBounds(340, 380, 80, 30);
 
         txtBuscaCurso.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -291,7 +342,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtBuscaCurso);
-        txtBuscaCurso.setBounds(210, 440, 125, 28);
+        txtBuscaCurso.setBounds(210, 440, 125, 30);
 
         btnBuscarCurso.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscarCurso.setForeground(new java.awt.Color(255, 255, 255));
@@ -302,12 +353,11 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBuscarCurso);
-        btnBuscarCurso.setBounds(340, 440, 67, 28);
+        btnBuscarCurso.setBounds(340, 440, 80, 30);
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Buscar por Curso:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(220, 420, 100, 16);
+        jLabel4.setBounds(210, 420, 120, 14);
 
         txtBuscaMateria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -315,7 +365,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtBuscaMateria);
-        txtBuscaMateria.setBounds(500, 380, 125, 28);
+        txtBuscaMateria.setBounds(500, 380, 125, 30);
 
         btnBuscaMateria.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscaMateria.setForeground(new java.awt.Color(255, 255, 255));
@@ -326,7 +376,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBuscaMateria);
-        btnBuscaMateria.setBounds(630, 380, 70, 28);
+        btnBuscaMateria.setBounds(630, 380, 80, 30);
 
         btnBuscaMes.setBackground(new java.awt.Color(0, 0, 255));
         btnBuscaMes.setForeground(new java.awt.Color(255, 255, 255));
@@ -337,20 +387,17 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBuscaMes);
-        btnBuscaMes.setBounds(630, 440, 73, 28);
+        btnBuscaMes.setBounds(630, 440, 80, 30);
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Buscar por Matéria:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(510, 360, 120, 16);
+        jLabel5.setBounds(500, 360, 120, 14);
 
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Buscar por data:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(510, 420, 100, 16);
+        jLabel6.setBounds(500, 420, 120, 14);
 
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Ano - Mês - Dia");
         getContentPane().add(jLabel7);
         jLabel7.setBounds(520, 470, 90, 14);
@@ -361,7 +408,9 @@ public class TelaTabelaDados extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtBuscaData);
-        txtBuscaData.setBounds(500, 440, 120, 28);
+        txtBuscaData.setBounds(500, 440, 120, 30);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 10, 10);
 
         setSize(new java.awt.Dimension(921, 534));
         setLocationRelativeTo(null);
@@ -388,6 +437,8 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER){
             readTabelaDadosForMonitor1(txtBuscaMonitor.getText());
             readTabelaDadosForMonitor2(txtBuscaMonitor.getText());
+            readTabelaDadosForMonitor3(txtBuscaMonitor.getText());
+            readTabelaDadosForMonitor4(txtBuscaMonitor.getText());
         }
     }//GEN-LAST:event_txtBuscaMonitorKeyPressed
 
@@ -456,6 +507,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField txtBuscaCurso;
