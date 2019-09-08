@@ -175,7 +175,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaNovaMonitoria2 telaNovaMoni = new TelaNovaMonitoria2();
+        TelaNovaMonitoria telaNovaMoni = new TelaNovaMonitoria();
         telaNovaMoni.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
@@ -202,7 +202,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        TelaNovaMonitoria2 telaNovaMoni = new TelaNovaMonitoria2();
+        TelaNovaMonitoria telaNovaMoni = new TelaNovaMonitoria();
         telaNovaMoni.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 

@@ -17,7 +17,10 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     public TelaBuscaEstatisticas() {
         initComponents();
         
-        
+        jComboBoxMes.setEnabled(false);
+        txtAnoMes.setEnabled(false);
+        btnGrafico.setEnabled(false);
+        btnTabela.setEnabled(false);
     }
 
     /**
@@ -29,144 +32,124 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        txtAnoMes = new javax.swing.JFormattedTextField();
+        btnTabela = new javax.swing.JButton();
+        jRadioButtonMateria = new javax.swing.JRadioButton();
+        jRadioButtonDSemana = new javax.swing.JRadioButton();
+        jRadioButtonMes = new javax.swing.JRadioButton();
+        jLabel1 = new javax.swing.JLabel();
+        jComboBoxMes = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        boxMesMateria = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtAnoMateria = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtAnoMes = new javax.swing.JFormattedTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        btnEstatisticaMesTabela = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnGrafico = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Estatísticas - PET");
         getContentPane().setLayout(null);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(150, 10, 120, 120);
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Estatísticas");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(350, 60, 150, 20);
-
-        jLabel3.setText("Matéria:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(50, 180, 80, 14);
-
-        boxMesMateria.setMaximumRowCount(13);
-        boxMesMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Stembro", "Outubro", "Novembro", "Dezembro" }));
-        getContentPane().add(boxMesMateria);
-        boxMesMateria.setBounds(160, 180, 70, 20);
-
-        jLabel4.setText("Mês:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(160, 160, 60, 14);
-
-        jLabel5.setText("Ano:");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(280, 160, 50, 14);
-
-        try {
-            txtAnoMateria.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        getContentPane().add(txtAnoMateria);
-        txtAnoMateria.setBounds(280, 180, 50, 20);
-
-        jLabel6.setText("Dia da Semana:");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(50, 240, 90, 14);
-
-        jComboBox1.setMaximumRowCount(13);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(160, 240, 70, 20);
-
-        jLabel7.setText("Mês:");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(160, 220, 60, 14);
-
-        try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        getContentPane().add(jFormattedTextField2);
-        jFormattedTextField2.setBounds(280, 240, 50, 20);
-
-        jLabel8.setText("Ano:");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(280, 220, 50, 14);
-
-        jLabel9.setText("Mês:");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(50, 300, 70, 14);
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(300, 60, 150, 20);
 
         try {
             txtAnoMes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtAnoMes.setEnabled(false);
         txtAnoMes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAnoMesActionPerformed(evt);
             }
         });
-        getContentPane().add(txtAnoMes);
-        txtAnoMes.setBounds(280, 300, 50, 30);
+        jPanel1.add(txtAnoMes);
+        txtAnoMes.setBounds(330, 160, 50, 30);
 
-        jLabel10.setText("Ano:");
-        getContentPane().add(jLabel10);
-        jLabel10.setBounds(280, 280, 50, 14);
-
-        jButton1.setText("Tabela");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(360, 180, 73, 23);
-
-        jButton2.setText("Gráfico");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(450, 180, 70, 23);
-
-        jButton3.setText("Tabela");
-        getContentPane().add(jButton3);
-        jButton3.setBounds(360, 240, 70, 23);
-
-        jButton4.setText("Gráfico");
-        getContentPane().add(jButton4);
-        jButton4.setBounds(450, 240, 70, 23);
-
-        btnEstatisticaMesTabela.setBackground(new java.awt.Color(0, 51, 255));
-        btnEstatisticaMesTabela.setForeground(new java.awt.Color(255, 255, 255));
-        btnEstatisticaMesTabela.setText("Tabela");
-        btnEstatisticaMesTabela.addActionListener(new java.awt.event.ActionListener() {
+        btnTabela.setBackground(new java.awt.Color(0, 51, 255));
+        btnTabela.setForeground(new java.awt.Color(255, 255, 255));
+        btnTabela.setText("Tabela");
+        btnTabela.setEnabled(false);
+        btnTabela.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEstatisticaMesTabelaActionPerformed(evt);
+                btnTabelaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnEstatisticaMesTabela);
-        btnEstatisticaMesTabela.setBounds(360, 300, 70, 23);
+        jPanel1.add(btnTabela);
+        btnTabela.setBounds(410, 160, 70, 30);
 
-        jButton6.setText("Gráfico");
-        getContentPane().add(jButton6);
-        jButton6.setBounds(450, 300, 70, 23);
+        jRadioButtonMateria.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButtonMateria);
+        jRadioButtonMateria.setText("Matéria");
+        jRadioButtonMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMateriaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButtonMateria);
+        jRadioButtonMateria.setBounds(70, 160, 100, 23);
 
-        setSize(new java.awt.Dimension(714, 389));
+        jRadioButtonDSemana.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButtonDSemana);
+        jRadioButtonDSemana.setText("Dia da Semana");
+        jRadioButtonDSemana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonDSemanaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButtonDSemana);
+        jRadioButtonDSemana.setBounds(70, 190, 120, 23);
+
+        jRadioButtonMes.setBackground(new java.awt.Color(255, 255, 255));
+        buttonGroup1.add(jRadioButtonMes);
+        jRadioButtonMes.setText("Mês");
+        jRadioButtonMes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButtonMesActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jRadioButtonMes);
+        jRadioButtonMes.setBounds(70, 220, 100, 23);
+
+        jLabel1.setText("Buscar por:");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(80, 140, 80, 14);
+
+        jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Janeiro", "Feveiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
+        jComboBoxMes.setEnabled(false);
+        jPanel1.add(jComboBoxMes);
+        jComboBoxMes.setBounds(210, 160, 90, 30);
+
+        jLabel3.setText("Mês:");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(210, 140, 90, 14);
+
+        jLabel4.setText("Ano:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(330, 140, 50, 14);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET2.png"))); // NOI18N
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(160, 20, 110, 100);
+
+        btnGrafico.setBackground(new java.awt.Color(0, 51, 255));
+        btnGrafico.setForeground(new java.awt.Color(255, 255, 255));
+        btnGrafico.setText("Gráfico");
+        btnGrafico.setEnabled(false);
+        jPanel1.add(btnGrafico);
+        btnGrafico.setBounds(500, 160, 67, 30);
+
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 640, 290);
+
+        setSize(new java.awt.Dimension(646, 328));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -174,11 +157,38 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
         
     }//GEN-LAST:event_txtAnoMesActionPerformed
 
-    private void btnEstatisticaMesTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstatisticaMesTabelaActionPerformed
+    private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
         TelaTabelaEstMes telaE = new TelaTabelaEstMes(txtAnoMes.getText());
         //jDesktopPane.add(telaBuscaEst);
         telaE.setVisible(true);
-    }//GEN-LAST:event_btnEstatisticaMesTabelaActionPerformed
+    }//GEN-LAST:event_btnTabelaActionPerformed
+
+    private void jRadioButtonMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMesActionPerformed
+        if(jRadioButtonMes.isSelected()){
+            jComboBoxMes.setEnabled(false);
+            txtAnoMes.setEnabled(true);
+            btnGrafico.setEnabled(true);
+            btnTabela.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioButtonMesActionPerformed
+
+    private void jRadioButtonDSemanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDSemanaActionPerformed
+        if(jRadioButtonDSemana.isSelected()){
+            jComboBoxMes.setEnabled(true);
+            txtAnoMes.setEnabled(true);
+            btnGrafico.setEnabled(true);
+            btnTabela.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioButtonDSemanaActionPerformed
+
+    private void jRadioButtonMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMateriaActionPerformed
+        if(jRadioButtonMateria.isSelected()){
+            jComboBoxMes.setEnabled(true);
+            txtAnoMes.setEnabled(true);
+            btnGrafico.setEnabled(true);
+            btnTabela.setEnabled(true);
+        }
+    }//GEN-LAST:event_jRadioButtonMateriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,26 +226,19 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> boxMesMateria;
-    private javax.swing.JButton btnEstatisticaMesTabela;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
+    private javax.swing.JButton btnGrafico;
+    private javax.swing.JButton btnTabela;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox<String> jComboBoxMes;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JFormattedTextField txtAnoMateria;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRadioButtonDSemana;
+    private javax.swing.JRadioButton jRadioButtonMateria;
+    private javax.swing.JRadioButton jRadioButtonMes;
     private javax.swing.JFormattedTextField txtAnoMes;
     // End of variables declaration//GEN-END:variables
 }

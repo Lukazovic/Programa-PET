@@ -14,12 +14,12 @@ import model.dao.PetDAO;
 /**
  * @author Lucas Vieira
  */
-public class TelaNovaMonitoria2 extends javax.swing.JFrame {
+public class TelaNovaMonitoria extends javax.swing.JFrame {
     
     /**
      * Creates new form TelaNovaMonitoria2
      */
-    public TelaNovaMonitoria2() {
+    public TelaNovaMonitoria() {
         initComponents();
         
         jRadioButtonHora.setSelected(true);
@@ -486,20 +486,21 @@ public class TelaNovaMonitoria2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaNovaMonitoria2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovaMonitoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaNovaMonitoria2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovaMonitoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaNovaMonitoria2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovaMonitoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaNovaMonitoria2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaNovaMonitoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaNovaMonitoria2().setVisible(true);
+                new TelaNovaMonitoria().setVisible(true);
             }
         });
     }
