@@ -159,9 +159,15 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnoMesActionPerformed
 
     private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
-        TelaEstMesTabela telaE = new TelaEstMesTabela(txtAnoMes.getText());
-        //TelaTabelaEstMes telaE = new TelaTabelaEstMes(txtAnoMes.getText());
-        telaE.setVisible(true);
+        if(jRadioButtonMes.isSelected()){
+            TelaEstMesTabela telaEM = new TelaEstMesTabela(txtAnoMes.getText());
+            telaEM.setVisible(true);
+        }else if (jRadioButtonDSemana.isSelected()){
+            TelaEstDiaSemanaTabela telaES = new TelaEstDiaSemanaTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
+            telaES.setVisible(true);
+        }else if (jRadioButtonMateria.isSelected()){
+            
+        }
     }//GEN-LAST:event_btnTabelaActionPerformed
 
     private void jRadioButtonMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMesActionPerformed

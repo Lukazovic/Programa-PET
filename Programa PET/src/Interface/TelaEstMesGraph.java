@@ -1,37 +1,27 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-//import javax.swing.table.DefaultTableModel;
+import javax.swing.table.DefaultTableModel;
 import model.bean.Dados;
 import model.bean.EstatisticaMes;
 import model.dao.PetDAO;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
-public class TelaEstMesTabela extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TelaEstMesTabela
-     */
+public class TelaEstMesGraph extends javax.swing.JFrame {
     
     private String DataText;
     private Object btnEstatisticaMesTabela;
     
-    public TelaEstMesTabela(String dataText) {
+    public TelaEstMesGraph(String dataText) {
         initComponents();
         mostrarEstatisticasTMes(dataText);
     }
     
-    public TelaEstMesTabela() {
+    public TelaEstMesGraph() {
         initComponents();
     }
     
@@ -125,19 +115,6 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         m11 = m11/mt;
         m12 = m12/mt;
         
-        /*NumberFormat.getPercentInstance().format(m1);
-        NumberFormat.getPercentInstance().format(m2);
-        NumberFormat.getPercentInstance().format(m3);
-        NumberFormat.getPercentInstance().format(m4);
-        NumberFormat.getPercentInstance().format(m5);
-        NumberFormat.getPercentInstance().format(m6);
-        NumberFormat.getPercentInstance().format(m7);
-        NumberFormat.getPercentInstance().format(m8);
-        NumberFormat.getPercentInstance().format(m9);
-        NumberFormat.getPercentInstance().format(m10);
-        NumberFormat.getPercentInstance().format(m11);
-        NumberFormat.getPercentInstance().format(m12);*/
-        
         jLabelJan.setText(NumberFormat.getPercentInstance().format(m1));
         jLabelFev.setText(NumberFormat.getPercentInstance().format(m2));
         jLabelMar.setText(NumberFormat.getPercentInstance().format(m3));
@@ -150,8 +127,6 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         jLabelOut.setText(NumberFormat.getPercentInstance().format(m10));
         jLabelNov.setText(NumberFormat.getPercentInstance().format(m11));
         jLabelDez.setText(NumberFormat.getPercentInstance().format(m12));
-        
-        //jLabelJan.setText(sAux);
     }
     
     
@@ -328,20 +303,21 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaEstMesTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstMesGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaEstMesTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstMesGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaEstMesTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstMesGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaEstMesTabela.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaEstMesGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaEstMesTabela().setVisible(true);
+                new TelaEstMesGraph().setVisible(true);
             }
         });
     }
