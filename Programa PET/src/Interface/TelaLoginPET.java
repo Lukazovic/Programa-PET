@@ -52,7 +52,7 @@ public class TelaLoginPET extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(244, 244, 244));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         btnEntrar.setBackground(new java.awt.Color(0, 0, 204));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -85,7 +85,7 @@ public class TelaLoginPET extends javax.swing.JFrame {
 
         jLabel1.setText("Usuário:");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET.jpg"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET3.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -103,23 +103,23 @@ public class TelaLoginPET extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel4)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap(34, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsuario)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenha)
+                .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEntrar)
                 .addGap(24, 24, 24))
@@ -139,13 +139,10 @@ public class TelaLoginPET extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         if (this.checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()) ) == true)
         {
-            //login = txtUsuario.getText();
-            //senha = txtSenha.getText();
             JOptionPane.showMessageDialog(rootPane, "Bem Vindo !");
             this.dispose();
-            TelaPrincipalPETMDI telaPrinc = new TelaPrincipalPETMDI();
-            //jDesktopPane1.add(telaPrinc);
-            telaPrinc.setVisible(true);
+            TelaPrincipalPET telaPrincipal = new TelaPrincipalPET();
+            telaPrincipal.setVisible(true);
         }else
         {
             JOptionPane.showMessageDialog(null, "Acesso Negado !");
@@ -158,8 +155,8 @@ public class TelaLoginPET extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(rootPane, "Bem Vindo !");
                 this.dispose();
-                TelaPrincipalPETMDI telaPrinc = new TelaPrincipalPETMDI();
-                telaPrinc.setVisible(true);
+                TelaPrincipalPET telaPrincipal = new TelaPrincipalPET();
+                telaPrincipal.setVisible(true);
             }else
             {
                 JOptionPane.showMessageDialog(null, "Acesso Negado !");
@@ -173,7 +170,7 @@ public class TelaLoginPET extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(rootPane, "Bem Vindo !");
                 this.dispose();
-                TelaPrincipalPETMDI telaPrinc = new TelaPrincipalPETMDI();
+                TelaPrincipalPET telaPrinc = new TelaPrincipalPET();
                 telaPrinc.setVisible(true);
             }else
             {

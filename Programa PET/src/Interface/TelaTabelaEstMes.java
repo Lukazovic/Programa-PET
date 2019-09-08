@@ -50,7 +50,6 @@ public class TelaTabelaEstMes extends javax.swing.JFrame {
         
         //PreparedStatement stmt = null;
         listaDados = pdao.searchData(DataText);
-        System.out.println(listaDados.size());
         
         String sAux;
         sAux = listaDados.get(0).getDataMonitoria();
