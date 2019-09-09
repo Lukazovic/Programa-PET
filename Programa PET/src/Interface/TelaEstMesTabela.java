@@ -28,6 +28,7 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
     
     public TelaEstMesTabela(String dataText) {
         initComponents();
+        jLabelAno.setText(dataText);
         mostrarEstatisticasTMes(dataText);
     }
     
@@ -125,18 +126,6 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         m11 = m11/mt;
         m12 = m12/mt;
         
-        /*NumberFormat.getPercentInstance().format(m1);
-        NumberFormat.getPercentInstance().format(m2);
-        NumberFormat.getPercentInstance().format(m3);
-        NumberFormat.getPercentInstance().format(m4);
-        NumberFormat.getPercentInstance().format(m5);
-        NumberFormat.getPercentInstance().format(m6);
-        NumberFormat.getPercentInstance().format(m7);
-        NumberFormat.getPercentInstance().format(m8);
-        NumberFormat.getPercentInstance().format(m9);
-        NumberFormat.getPercentInstance().format(m10);
-        NumberFormat.getPercentInstance().format(m11);
-        NumberFormat.getPercentInstance().format(m12);*/
         
         jLabelJan.setText(NumberFormat.getPercentInstance().format(m1));
         jLabelFev.setText(NumberFormat.getPercentInstance().format(m2));
@@ -150,6 +139,7 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         jLabelOut.setText(NumberFormat.getPercentInstance().format(m10));
         jLabelNov.setText(NumberFormat.getPercentInstance().format(m11));
         jLabelDez.setText(NumberFormat.getPercentInstance().format(m12));
+        jLabelContagemM.setText(String.valueOf(m.getTotal() +" Monitorias contadas"));
         
         //jLabelJan.setText(sAux);
     }
@@ -166,7 +156,7 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelAno = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -191,6 +181,8 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         jLabelSet = new javax.swing.JLabel();
         jLabelOut = new javax.swing.JLabel();
         jLabelNov = new javax.swing.JLabel();
+        jLabelContagemM = new javax.swing.JLabel();
+        jLabelContagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -203,10 +195,10 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(80, 20, 110, 110);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Mês");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(210, 50, 120, 30);
+        jLabelAno.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelAno.setText("Mês");
+        jPanel1.add(jLabelAno);
+        jLabelAno.setBounds(210, 50, 120, 30);
 
         jLabel3.setText("Janeiro:");
         jPanel1.add(jLabel3);
@@ -304,10 +296,18 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         jPanel1.add(jLabelNov);
         jLabelNov.setBounds(300, 220, 34, 14);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 400, 300);
+        jLabelContagemM.setText("jLabel9");
+        jPanel1.add(jLabelContagemM);
+        jLabelContagemM.setBounds(130, 270, 170, 14);
 
-        setSize(new java.awt.Dimension(398, 339));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 400, 320);
+
+        jLabelContagem.setText("jLabel2");
+        getContentPane().add(jLabelContagem);
+        jLabelContagem.setBounds(110, 260, 160, 70);
+
+        setSize(new java.awt.Dimension(398, 335));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -348,7 +348,6 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -358,6 +357,9 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAbr;
     private javax.swing.JLabel jLabelAgo;
     private javax.swing.JLabel jLabelAgo1;
+    private javax.swing.JLabel jLabelAno;
+    private javax.swing.JLabel jLabelContagem;
+    private javax.swing.JLabel jLabelContagemM;
     private javax.swing.JLabel jLabelDez;
     private javax.swing.JLabel jLabelDez1;
     private javax.swing.JLabel jLabelFev;

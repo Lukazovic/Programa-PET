@@ -24,6 +24,8 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
     
     public TelaEstDiaSemanaTabela(String dataText, int mesProcurado) {
         initComponents();
+        showMonth(mesProcurado);
+        jLabelAno.setText(dataText);
         mostrarEstatisticasTMes(dataText, mesProcurado);
     }
     
@@ -32,6 +34,7 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
     }
     
     public void mostrarEstatisticasTMes(String DataText, int mesProcurado){
+        
         Dados dado = new Dados();
         PetDAO pdao =  new PetDAO();
         List<Dados> listaDados = new ArrayList<>();
@@ -57,10 +60,14 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
                     listaDados2.add(listaDados.get(i));
                 }
             }
+        }else{
+            for (int i=0; i<listaDados.size(); i++){
+                listaDados2.add(listaDados.get(i));
+            }
         }
-        
-        
+        int count = 0;
         for(int i=0; i<listaDados2.size(); i++){
+            count++;
             sAux = listaDados2.get(i).getDataMonitoria();
             String[] dataC = sAux.split("-");
             LocalDate dataTesteSemana = LocalDate.of(Integer.parseInt(dataC[0]), Integer.parseInt(dataC[1]), Integer.parseInt(dataC[2]));
@@ -114,8 +121,52 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
         jLabelQui.setText(NumberFormat.getPercentInstance().format(m5));
         jLabelSex.setText(NumberFormat.getPercentInstance().format(m6));
         jLabelSab.setText(NumberFormat.getPercentInstance().format(m7));
+        jLabelContagem.setText(String.valueOf(count +" Monitorias contadas"));
         
-        
+    }
+    
+    private void showMonth (int mesEscolhido){
+        switch(mesEscolhido){
+            case 0:
+                jLabelMes.setText("Ano Inteiro");
+                break;
+            case 1:
+                jLabelMes.setText("Janeiro");
+                break;
+            case 2:
+                jLabelMes.setText("Fevereiro");
+                break;
+            case 3:
+                jLabelMes.setText("Março");
+                break;
+            case 4:
+                jLabelMes.setText("Abril");
+                break;
+            case 5:
+                jLabelMes.setText("Maio");
+                break;
+            case 6:
+                jLabelMes.setText("Junho");
+                break;
+            case 7:
+                jLabelMes.setText("Julho");
+                break;
+            case 8:
+                jLabelMes.setText("Agosto");
+                break;
+            case 9:
+                jLabelMes.setText("Setembro");
+                break;
+            case 10:
+                jLabelMes.setText("Outubro");
+                break;
+            case 11:
+                jLabelMes.setText("Novembro");
+                break;
+            case 12:
+                jLabelMes.setText("Dezembro");
+                break;
+        }
     }
     
     
@@ -146,6 +197,7 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
         jLabelAno = new javax.swing.JLabel();
         jLabelSab1 = new javax.swing.JLabel();
         jLabelSab = new javax.swing.JLabel();
+        jLabelContagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -224,10 +276,14 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
         jPanel1.add(jLabelSab);
         jLabelSab.setBounds(170, 260, 40, 14);
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 320, 300);
+        jLabelContagem.setText("jLabel2");
+        jPanel1.add(jLabelContagem);
+        jLabelContagem.setBounds(110, 300, 160, 14);
 
-        setSize(new java.awt.Dimension(321, 332));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(0, 0, 320, 360);
+
+        setSize(new java.awt.Dimension(321, 366));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -270,6 +326,7 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAno;
+    private javax.swing.JLabel jLabelContagem;
     private javax.swing.JLabel jLabelDom;
     private javax.swing.JLabel jLabelDom1;
     private javax.swing.JLabel jLabelMes;

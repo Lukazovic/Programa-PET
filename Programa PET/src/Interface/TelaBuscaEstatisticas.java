@@ -5,6 +5,12 @@
  */
 package Interface;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import model.bean.Dados;
+import model.dao.PetDAO;
+
 /**
  *
  * @author Lucas
@@ -159,15 +165,27 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnoMesActionPerformed
 
     private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
-        if(jRadioButtonMes.isSelected()){
-            TelaEstMesTabela telaEM = new TelaEstMesTabela(txtAnoMes.getText());
-            telaEM.setVisible(true);
-        }else if (jRadioButtonDSemana.isSelected()){
-            TelaEstDiaSemanaTabela telaES = new TelaEstDiaSemanaTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
-            telaES.setVisible(true);
-        }else if (jRadioButtonMateria.isSelected()){
-            
+        Dados dado = new Dados();
+        PetDAO pdao =  new PetDAO();
+        List<Dados> listaDados = new ArrayList<>();
+        listaDados = pdao.searchData(txtAnoMes.getText());
+        if(listaDados.isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "ERRO: Nenhuma monitoria cadastrada em " +txtAnoMes.getText()+"!");
+            txtAnoMes.setText("");
+        }else{
+            if(jRadioButtonMes.isSelected()){
+                TelaEstMesTabela telaEM = new TelaEstMesTabela(txtAnoMes.getText());
+                telaEM.setVisible(true);
+            }else if (jRadioButtonDSemana.isSelected()){
+                TelaEstDiaSemanaTabela telaES = new TelaEstDiaSemanaTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
+                telaES.setVisible(true);
+            }else if (jRadioButtonMateria.isSelected()){
+
+            }
+            txtAnoMes.setText("");
         }
+        
+        
     }//GEN-LAST:event_btnTabelaActionPerformed
 
     private void jRadioButtonMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMesActionPerformed
