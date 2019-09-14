@@ -1,23 +1,44 @@
 package Interface;
 
 import java.awt.BorderLayout;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import model.bean.Dados;
 import model.bean.EstatisticaMes;
+import model.bean.EstatisticasDiaSem;
 import model.dao.PetDAO;
 
 /*
  * @author Lucas Vieira
  */
-public class StatisticsGraph extends javax.swing.JFrame {
+public class StatisticGraph extends javax.swing.JFrame {
 
     /**
      * Creates new form StatisticsGraph
      */
-    public StatisticsGraph(String dataText) {
+    public StatisticGraph(String dataText, int mesProcurado, int option) {
         initComponents();
         
+        switch (option){
+            case 1:
+                
+                break;
+            case 2:
+                showGraphByDayOfWeek(dataText, mesProcurado);
+                break;
+            case 3:
+                showGraphByMonth(dataText);
+                break;
+        }
+    }
+    
+    public StatisticGraph() {
+        initComponents();
+        
+    }
+    
+    private void showGraphByMonth(String dataText){
         EstatisticaMes estMes = calculateEstMes(dataText);
         
         InfoEstMesGraph graficoBarra = new InfoEstMesGraph();
@@ -28,12 +49,7 @@ public class StatisticsGraph extends javax.swing.JFrame {
         pack();
     }
     
-    public StatisticsGraph() {
-        initComponents();
-        
-    }
-    
-    public EstatisticaMes calculateEstMes (String DataText){
+    private EstatisticaMes calculateEstMes (String DataText){
         Dados dado = new Dados();
         PetDAO pdao = new PetDAO();
         List<Dados> listaDados = new ArrayList<>();
@@ -93,6 +109,116 @@ public class StatisticsGraph extends javax.swing.JFrame {
         }
         
         return m;
+    }
+    
+    private EstatisticasDiaSem calculateDiaSemana (String DataText, int mesProcurado){
+        
+        Dados dado = new Dados();
+        PetDAO pdao =  new PetDAO();
+        List<Dados> listaDados = new ArrayList<>();
+        
+        listaDados = pdao.searchData(DataText);
+        int tamanhoAux = listaDados.size();
+        
+        String sAux;
+        dado = listaDados.get(0);
+        sAux = dado.getDataMonitoria();
+        String[] dataB = sAux.split("-");
+        EstatisticasDiaSem diaSemana = new EstatisticasDiaSem(Integer.parseInt(dataB[1]));
+        diaSemana.setTotal(listaDados.size());
+        
+        //Filtrando datas por mês
+        List<Dados> listaDados2 = new ArrayList<>();
+        if(mesProcurado != 0){
+            for (int i=0; i<listaDados.size(); i++){
+                sAux = dado.getDataMonitoria();
+                String[] dataC = sAux.split("-");
+                if(Integer.parseInt(dataC[1]) == mesProcurado){
+                    listaDados2.add(listaDados.get(i));
+                }
+            }
+        }else{
+            for (int i=0; i<listaDados.size(); i++){
+                listaDados2.add(listaDados.get(i));
+            }
+        }
+        int count = 0;
+        for(int i=0; i<listaDados2.size(); i++){
+            count++;
+            sAux = listaDados2.get(i).getDataMonitoria();
+            String[] dataC = sAux.split("-");
+            LocalDate dataTesteSemana = LocalDate.of(Integer.parseInt(dataC[0]), Integer.parseInt(dataC[1]), Integer.parseInt(dataC[2]));
+            
+            switch (dataTesteSemana.getDayOfWeek().getValue()){
+                case 1:
+                    diaSemana.setSegunda(diaSemana.getSegunda() +1);
+                    break;
+                case 2:
+                    diaSemana.setTerca(diaSemana.getTerca()+1);
+                    break;
+                case 3:
+                    diaSemana.setQuarta(diaSemana.getQuarta()+1);
+                    break;
+                case 4:
+                    diaSemana.setQuinta(diaSemana.getQuinta()+1);
+                    break;
+                case 5:
+                    diaSemana.setSexta(diaSemana.getSexta()+1);
+                    break;
+                case 6:
+                    diaSemana.setSabado(diaSemana.getSabado()+1);
+                    break;
+                case 7:
+                    diaSemana.setDomingo(diaSemana.getDomingo()+1);
+            }
+        }
+        
+        return diaSemana;
+    }
+    
+    private void showGraphByDayOfWeek(String dataText, int mesProcurado){
+        EstatisticasDiaSem estMes = calculateDiaSemana(dataText, mesProcurado);
+        
+        InfoEstDiaSemGraph graficoBarra = new InfoEstDiaSemGraph();
+        
+        this.jPanel1.setLayout(new BorderLayout());
+        
+        String aux = setNameMes(mesProcurado);
+        
+        this.jPanel1.add(graficoBarra.criarGrafico(estMes, aux+dataText));
+        pack();
+    }
+    
+    private String setNameMes(int mesProcurado){
+        switch(mesProcurado){
+            case 0:
+                return "Ano Inteiro - ";
+            case 1:
+                return "Janeiro - ";
+            case 2:
+                return "Fevereiro - ";
+            case 3:
+                return "Março - ";
+            case 4:
+                return "Abril - ";
+            case 5:
+                return "Maio - ";
+            case 6:
+                return "Junho - ";
+            case 7:
+                return "Julho - ";
+            case 8:
+                return "Agosto - ";
+            case 9:
+                return "Setembro - ";
+            case 10:
+                return "Outubro - ";
+            case 11:
+                return "Novembro - ";
+            case 12:
+                return "Dezembro - ";
+        }
+        return "";
     }
 
     /**
@@ -172,20 +298,23 @@ public class StatisticsGraph extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(StatisticsGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatisticGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(StatisticsGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatisticGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(StatisticsGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatisticGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(StatisticsGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(StatisticGraph.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StatisticsGraph().setVisible(true);
+                new StatisticGraph().setVisible(true);
             }
         });
     }
