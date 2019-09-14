@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 import javax.swing.JOptionPane;
 import model.bean.Cursos;
 import model.bean.Dados;
@@ -26,41 +27,73 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
         txtHora.setEnabled(false);
         txtData.setEnabled(false);
         
+        showBoxMonitores();
+        showBoxCursos();
+        showBoxMaterias();
+    }
+    
+    private void showBoxMonitores(){
         PetDAO pdao =  new PetDAO();
         List<Monitores> listaMonitores = new ArrayList<>();
         listaMonitores = pdao.readMonitores();
         Monitores monitor = new Monitores();
-        if(listaMonitores.size() !=0){
+        
+        if(listaMonitores.size()!=0){
+            PriorityQueue<String> listaOrdenadaMonitores = new PriorityQueue<>();
             for(int i=1; i<listaMonitores.size()+1; i++){
-                monitor = listaMonitores.get(i-1);
-                jComboBoxMonitor1.addItem(monitor.getNomeMonitor());
-                jComboBoxMonitor2.addItem(monitor.getNomeMonitor());
-                jComboBoxMonitor3.addItem(monitor.getNomeMonitor());
-                jComboBoxMonitor4.addItem(monitor.getNomeMonitor());
+                listaOrdenadaMonitores.add(listaMonitores.get(i-1).getNomeMonitor());
+            }
+            int tamAux =listaOrdenadaMonitores.size();
+            for(int j=1; j<tamAux+1; j++){
+                String auxNomeMonitor = listaOrdenadaMonitores.remove();
+                jComboBoxMonitor1.addItem(auxNomeMonitor);
+                jComboBoxMonitor2.addItem(auxNomeMonitor);
+                jComboBoxMonitor3.addItem(auxNomeMonitor);
+                jComboBoxMonitor4.addItem(auxNomeMonitor);
             }
         }
+    }
+    
+    private void showBoxCursos(){
+        PetDAO pdao =  new PetDAO();
         
         List<Cursos> listaCursos = new ArrayList<>();
         listaCursos = pdao.readCursos();
         Cursos curso = new Cursos();
-        if(listaCursos.size() !=0){
-            for(int i=1; i<listaCursos.size()+1; i++){
-                curso = listaCursos.get(i-1);
-                jComboBoxCurso.addItem(curso.getCursoCadastrado());
+        if(!listaCursos.isEmpty()){
+            PriorityQueue<String> listaOrdenadaCursos = new PriorityQueue<>();
+            for(int i=0; i<listaCursos.size(); i++){
+                listaOrdenadaCursos.add(listaCursos.get(i).getCursoCadastrado());
+            }
+            
+            int tamAux =listaOrdenadaCursos.size();
+            for(int i=1; i<tamAux+1; i++){
+                String auxNomeCursos = listaOrdenadaCursos.remove();
+                jComboBoxCurso.addItem(auxNomeCursos);
             }
         }
+    }
+    
+    private void showBoxMaterias(){
+        PetDAO pdao =  new PetDAO();
         
         List<Materias> listamMaterias = new ArrayList<>();
         listamMaterias = pdao.readMaterias();
         Materias materia = new Materias();
         if(listamMaterias.size() !=0){
-            for(int i=1; i<listamMaterias.size()+1; i++){
-                materia = listamMaterias.get(i-1);
-                jComboBoxMateria.addItem(materia.getMateriasCadastradas());
+            PriorityQueue<String> listaOrdenadaMaterias = new PriorityQueue<>();
+            for(int i=0; i<listamMaterias.size(); i++){
+                listaOrdenadaMaterias.add(listamMaterias.get(i).getMateriasCadastradas());
+            }
+            
+            int tamAux = listaOrdenadaMaterias.size();
+            for(int i=1; i<tamAux+1 ;i++){
+                String auxNomeMaterias = listaOrdenadaMaterias.remove();
+                jComboBoxMateria.addItem(auxNomeMaterias);
             }
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -365,78 +398,48 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
         if (jComboBoxMonitor1.getSelectedIndex() == 0){
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
         
-        monitor = listaMonitores.get(jComboBoxMonitor1.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+        return jComboBoxMonitor1.getSelectedItem().toString();
     }
     
     private String nameMonitor2(){
         if (jComboBoxMonitor2.getSelectedIndex() == 0){
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
         
-        monitor = listaMonitores.get(jComboBoxMonitor2.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+        return jComboBoxMonitor2.getSelectedItem().toString();
     }
     
     private String nameMonitor3(){
         if (jComboBoxMonitor3.getSelectedIndex() == 0){
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
         
-        monitor = listaMonitores.get(jComboBoxMonitor3.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+        return jComboBoxMonitor3.getSelectedItem().toString();
     }
     
     private String nameMonitor4(){
         if (jComboBoxMonitor4.getSelectedIndex() == 0){
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
         
-        monitor = listaMonitores.get(jComboBoxMonitor4.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+        return jComboBoxMonitor4.getSelectedItem().toString();
     }
     
     private String nameCurso(){
         if (jComboBoxCurso.getSelectedIndex() == 0){
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Cursos> listaCursos = new ArrayList<>();
-        listaCursos = pdao.readCursos();
-        Cursos curso = new Cursos();
         
-        curso = listaCursos.get(jComboBoxCurso.getSelectedIndex()-1);
-        return curso.getCursoCadastrado();
+        return jComboBoxCurso.getSelectedItem().toString();
     }
     
     private String nameMateria(){
         if (jComboBoxMateria.getSelectedIndex() == 0){
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Materias> listaMaterias = new ArrayList<>();
-        listaMaterias = pdao.readMaterias();
-        Materias materia = new Materias();
         
-        materia = listaMaterias.get(jComboBoxMateria.getSelectedIndex()-1);
-        return materia.getMateriasCadastradas();
+        return jComboBoxMateria.getSelectedItem().toString();
     }
     
     private String defineHour(){
