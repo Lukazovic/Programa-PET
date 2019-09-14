@@ -12,6 +12,7 @@ package model.bean;
 public class Materias {
     
     private String materiasCadastradas;
+    
 
     public String getMateriasCadastradas() {
         return materiasCadastradas;

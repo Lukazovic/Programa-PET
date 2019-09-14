@@ -180,7 +180,8 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
                 TelaEstDiaSemanaTabela telaES = new TelaEstDiaSemanaTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
                 telaES.setVisible(true);
             }else if (jRadioButtonMateria.isSelected()){
-
+                 TelaEstMatTabela telaMat = new TelaEstMatTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
+                 telaMat.setVisible(true);
             }
             txtAnoMes.setText("");
         }
