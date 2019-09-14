@@ -242,17 +242,6 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
             d.setHoraMonitoria(defineHour());
             d.setDataMonitoria(defineDate());
             
-            System.out.println(d.getNomeMonitor1());
-            System.out.println(d.getNomeMonitor2());
-            System.out.println(d.getNomeMonitor3());
-            System.out.println(d.getNomeMonitor4());
-            System.out.println(d.getNomeAluno());
-            System.out.println(d.getCursoAluno());
-            System.out.println(d.getMateriaAluno());
-            System.out.println(d.getLocalMonitoria());
-            System.out.println(d.getHoraMonitoria());
-            System.out.println(d.getDataMonitoria());
-            
             dao.create(d);
             
             jComboBoxMonitor1.setSelectedIndex(0);

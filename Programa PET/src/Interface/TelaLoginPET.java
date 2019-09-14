@@ -57,6 +57,11 @@ public class TelaLoginPET extends javax.swing.JFrame {
         btnEntrar.setBackground(new java.awt.Color(0, 0, 204));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
+        btnEntrar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                btnEntrarMouseMoved(evt);
+            }
+        });
         btnEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEntrarActionPerformed(evt);
@@ -115,11 +120,11 @@ public class TelaLoginPET extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 22, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 24, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEntrar)
                 .addGap(24, 24, 24))
@@ -178,6 +183,10 @@ public class TelaLoginPET extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_txtUsuarioKeyPressed
+
+    private void btnEntrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEntrarMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEntrarMouseMoved
 
     /**
      * @param args the command line arguments
