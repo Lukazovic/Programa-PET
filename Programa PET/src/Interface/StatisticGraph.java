@@ -223,7 +223,7 @@ public class StatisticGraph extends javax.swing.JFrame {
         return "";
     }
     
-    private List<EstatisticaMateria> calculateEstMateria (String DataText){
+    private List<EstatisticaMateria> calculateEstMateria (String DataText, int mesProcurado){
         Dados dado = new Dados();
         PetDAO pdao = new PetDAO();
         List<Dados> listaDados = new ArrayList<>();
@@ -233,9 +233,26 @@ public class StatisticGraph extends javax.swing.JFrame {
         Materias dadosDaMateria = new Materias();
         List<Materias> listaMaterias = new ArrayList<>();
         listaMaterias = pdao.readMaterias();
-
+        
+        String sAux;
         List<EstatisticaMateria> listEstMaterias = new ArrayList<>();
 
+        //Filtrando datas por mês
+        List<Dados> listaDados2 = new ArrayList<>();
+        if(mesProcurado != 0){
+            for (int i=0; i<listaDados.size(); i++){
+                sAux = listaDados.get(i).getDataMonitoria();
+                String[] dataC = sAux.split("-");
+                if(Integer.parseInt(dataC[1]) == mesProcurado){
+                    listaDados2.add(listaDados.get(i));
+                }
+            }
+        }else{
+            for (int i=0; i<listaDados.size(); i++){
+                listaDados2.add(listaDados.get(i));
+            }
+        }
+        
         int tamanhoAux = listaMaterias.size();
         for (int i = 0; i < tamanhoAux; i++) {
             EstatisticaMateria estMateria = new EstatisticaMateria();
@@ -244,9 +261,9 @@ public class StatisticGraph extends javax.swing.JFrame {
         }
 
         String nomeAux;
-        int tamanhoAux2 = listaDados.size();
-        for (int i = 0; i < listaDados.size(); i++) {
-            dado = listaDados.get(i);
+        int tamanhoAux2 = listaDados2.size();
+        for (int i = 0; i < listaDados2.size(); i++) {
+            dado = listaDados2.get(i);
             for (int j = 0; j < listEstMaterias.size(); j++) {
                 if (dado.getMateriaAluno().equals(listEstMaterias.get(j).getNomeMateria())) {
                     listEstMaterias.get(j).setQuantidadeMateria(listEstMaterias.get(j).getQuantidadeMateria() + 1);
@@ -258,7 +275,7 @@ public class StatisticGraph extends javax.swing.JFrame {
     }
     
     private void showGraphByMateria(String dataText, int mesProcurado){
-        List<EstatisticaMateria> listaMateria = calculateEstMateria(dataText);
+        List<EstatisticaMateria> listaMateria = calculateEstMateria(dataText, mesProcurado);
         
         InfoEstMateriaGraph graficoBarra = new InfoEstMateriaGraph();
         
