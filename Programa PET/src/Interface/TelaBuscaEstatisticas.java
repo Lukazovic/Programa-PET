@@ -228,12 +228,14 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             txtAnoMes.setText("");
         } else {
             if (jRadioButtonMes.isSelected()) {
-                StatisticsGraph telaGraph = new StatisticsGraph(txtAnoMes.getText());
+                StatisticGraph telaGraph = new StatisticGraph(txtAnoMes.getText(), 0, 3);
                 telaGraph.setVisible(true);
             } else if (jRadioButtonDSemana.isSelected()) {
-                
+                StatisticGraph telaGraph = new StatisticGraph(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex(), 2);
+                telaGraph.setVisible(true);
             } else if (jRadioButtonMateria.isSelected()) {
-                
+                StatisticGraph telaGraph = new StatisticGraph(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex(), 1);
+                telaGraph.setVisible(true);
             }
             txtAnoMes.setText("");
         }
