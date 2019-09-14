@@ -75,13 +75,15 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
         
         tamanhoAux = listEstMaterias.size();
         for(int i=0; i<tamanhoAux; i++){
-            float estatisticaPorcentagem = listEstMaterias.get(i).getQuantidadeMateria();
-            estatisticaPorcentagem = estatisticaPorcentagem/listaDados.size();
-            dtmMonitorias.addRow(new Object[]{
-                listEstMaterias.get(i).getNomeMateria(),
-                listEstMaterias.get(i).getQuantidadeMateria(),
-                NumberFormat.getPercentInstance().format(estatisticaPorcentagem)
-            });
+            if(listEstMaterias.get(i).getQuantidadeMateria()!=0){
+                float estatisticaPorcentagem = listEstMaterias.get(i).getQuantidadeMateria();
+                estatisticaPorcentagem = estatisticaPorcentagem/listaDados.size();
+                dtmMonitorias.addRow(new Object[]{
+                    listEstMaterias.get(i).getNomeMateria(),
+                    listEstMaterias.get(i).getQuantidadeMateria(),
+                    NumberFormat.getPercentInstance().format(estatisticaPorcentagem)
+                });
+            }
         }
         mostrarTotalMonitorias(listaDados.size());
         
