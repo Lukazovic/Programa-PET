@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.PriorityQueue;
 import javax.swing.JOptionPane;
 import model.bean.Cursos;
 import model.bean.Dados;
@@ -15,48 +16,80 @@ import model.dao.PetDAO;
  * @author Lucas Vieira
  */
 public class TelaNovaMonitoria extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form TelaNovaMonitoria2
      */
     public TelaNovaMonitoria() {
         initComponents();
-        
+
         jRadioButtonHora.setSelected(true);
         txtHora.setEnabled(false);
         txtData.setEnabled(false);
-        
-        PetDAO pdao =  new PetDAO();
+
+        showBoxMonitores();
+        showBoxCursos();
+        showBoxMaterias();
+    }
+
+    private void showBoxMonitores() {
+        PetDAO pdao = new PetDAO();
         List<Monitores> listaMonitores = new ArrayList<>();
         listaMonitores = pdao.readMonitores();
         Monitores monitor = new Monitores();
-        if(listaMonitores.size() !=0){
-            for(int i=1; i<listaMonitores.size()+1; i++){
-                monitor = listaMonitores.get(i-1);
-                jComboBoxMonitor1.addItem(monitor.getNomeMonitor());
-                jComboBoxMonitor2.addItem(monitor.getNomeMonitor());
-                jComboBoxMonitor3.addItem(monitor.getNomeMonitor());
-                jComboBoxMonitor4.addItem(monitor.getNomeMonitor());
+
+        if (listaMonitores.size() != 0) {
+            PriorityQueue<String> listaOrdenadaMonitores = new PriorityQueue<>();
+            for (int i = 1; i < listaMonitores.size() + 1; i++) {
+                listaOrdenadaMonitores.add(listaMonitores.get(i - 1).getNomeMonitor());
+            }
+            int tamAux = listaOrdenadaMonitores.size();
+            for (int j = 1; j < tamAux + 1; j++) {
+                String auxNomeMonitor = listaOrdenadaMonitores.remove();
+                jComboBoxMonitor1.addItem(auxNomeMonitor);
+                jComboBoxMonitor2.addItem(auxNomeMonitor);
+                jComboBoxMonitor3.addItem(auxNomeMonitor);
+                jComboBoxMonitor4.addItem(auxNomeMonitor);
             }
         }
-        
+    }
+
+    private void showBoxCursos() {
+        PetDAO pdao = new PetDAO();
+
         List<Cursos> listaCursos = new ArrayList<>();
         listaCursos = pdao.readCursos();
         Cursos curso = new Cursos();
-        if(listaCursos.size() !=0){
-            for(int i=1; i<listaCursos.size()+1; i++){
-                curso = listaCursos.get(i-1);
-                jComboBoxCurso.addItem(curso.getCursoCadastrado());
+        if (!listaCursos.isEmpty()) {
+            PriorityQueue<String> listaOrdenadaCursos = new PriorityQueue<>();
+            for (int i = 0; i < listaCursos.size(); i++) {
+                listaOrdenadaCursos.add(listaCursos.get(i).getCursoCadastrado());
+            }
+
+            int tamAux = listaOrdenadaCursos.size();
+            for (int i = 1; i < tamAux + 1; i++) {
+                String auxNomeCursos = listaOrdenadaCursos.remove();
+                jComboBoxCurso.addItem(auxNomeCursos);
             }
         }
-        
+    }
+
+    private void showBoxMaterias() {
+        PetDAO pdao = new PetDAO();
+
         List<Materias> listamMaterias = new ArrayList<>();
         listamMaterias = pdao.readMaterias();
         Materias materia = new Materias();
-        if(listamMaterias.size() !=0){
-            for(int i=1; i<listamMaterias.size()+1; i++){
-                materia = listamMaterias.get(i-1);
-                jComboBoxMateria.addItem(materia.getMateriasCadastradas());
+        if (listamMaterias.size() != 0) {
+            PriorityQueue<String> listaOrdenadaMaterias = new PriorityQueue<>();
+            for (int i = 0; i < listamMaterias.size(); i++) {
+                listaOrdenadaMaterias.add(listamMaterias.get(i).getMateriasCadastradas());
+            }
+
+            int tamAux = listaOrdenadaMaterias.size();
+            for (int i = 1; i < tamAux + 1; i++) {
+                String auxNomeMaterias = listaOrdenadaMaterias.remove();
+                jComboBoxMateria.addItem(auxNomeMaterias);
             }
         }
     }
@@ -227,10 +260,10 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDataActionPerformed
 
     private void btnSalvarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarDadosActionPerformed
-        if(validateMonitoria()){
+        if (validateMonitoria()) {
             Dados d = new Dados();
             PetDAO dao = new PetDAO();
-            
+
             d.setNomeMonitor1(nameMonitor1());
             d.setNomeMonitor2(nameMonitor2());
             d.setNomeMonitor3(nameMonitor3());
@@ -241,9 +274,9 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
             d.setLocalMonitoria(txtLocal.getText());
             d.setHoraMonitoria(defineHour());
             d.setDataMonitoria(defineDate());
-            
+
             dao.create(d);
-            
+
             jComboBoxMonitor1.setSelectedIndex(0);
             jComboBoxMonitor2.setSelectedIndex(0);
             jComboBoxMonitor3.setSelectedIndex(0);
@@ -261,10 +294,10 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarDadosActionPerformed
 
     private void jRadioButtonHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonHoraActionPerformed
-        if(jRadioButtonHora.isSelected()){
+        if (jRadioButtonHora.isSelected()) {
             txtData.setEnabled(false);
             txtHora.setEnabled(false);
-        }else{
+        } else {
             txtData.setEnabled(true);
             txtHora.setEnabled(true);
         }
@@ -274,38 +307,38 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxMateriaActionPerformed
 
-    boolean validateMonitoria(){
-        if(!validateMonitor1()){
+    boolean validateMonitoria() {
+        if (!validateMonitor1()) {
             return false;
         }
-        if(!validateNomeAluno()){
+        if (!validateNomeAluno()) {
             return false;
         }
-        if(!validateCursoAluno()){
+        if (!validateCursoAluno()) {
             return false;
         }
-        if (!validateMateria()){
+        if (!validateMateria()) {
             return false;
         }
-        if (!validateHora()){
+        if (!validateHora()) {
             return false;
         }
-        if (!validateData()){
+        if (!validateData()) {
             return false;
         }
         return true;
     }
-    
-    private boolean validateMonitor1(){
-        if(jComboBoxMonitor1.getSelectedIndex() == 0){
+
+    private boolean validateMonitor1() {
+        if (jComboBoxMonitor1.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "ERRO: Monitor não informado!");
             return false;
         }
         return true;
     }
-    
-    private boolean validateNomeAluno(){
-        if(txtNomeAluno.getText().isEmpty()){
+
+    private boolean validateNomeAluno() {
+        if (txtNomeAluno.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "ERRO: Insira o nome do Aluno!");
             return false;
         }/*else if(Integer.parseInt(txtNomeAluno.getText()) > 30){
@@ -313,152 +346,121 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
         }*/
         return true;
     }
-    
-    private boolean validateCursoAluno(){
-        if(jComboBoxCurso.getSelectedIndex() == 0){
+
+    private boolean validateCursoAluno() {
+        if (jComboBoxCurso.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "ERRO: Selecione o curso do Aluno!");
             return false;
         }
         return true;
     }
-    
-    private boolean validateMateria(){
-        if(jComboBoxMateria.getSelectedIndex() == 0){
+
+    private boolean validateMateria() {
+        if (jComboBoxMateria.getSelectedIndex() == 0) {
             JOptionPane.showMessageDialog(null, "ERRO: Informe a matéria!");
             return false;
         }
         return true;
     }
-    
-    private boolean validateHora(){
-        if(!jRadioButtonHora.isSelected()){
-            if(txtHora.getText().isEmpty()){
+
+    private boolean validateHora() {
+        if (!jRadioButtonHora.isSelected()) {
+            if (txtHora.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "ERRO: Hora inválida!");
                 return false;
             }
         }
         return true;
     }
-    
-    private boolean validateData(){
-        if(!jRadioButtonHora.isSelected()){
-            if(txtData.getText().isEmpty()){
+
+    private boolean validateData() {
+        if (!jRadioButtonHora.isSelected()) {
+            if (txtData.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "ERRO: Data não inserida corretamente!");
                 return false;
-            }else if (validateIfDateIsAfter()){
+            } else if (validateIfDateIsAfter()) {
                 JOptionPane.showMessageDialog(null, "ERRO: Data inválida!");
                 return false;
             }
         }
         return true;
     }
-    
-    private boolean validateIfDateIsAfter(){
+
+    private boolean validateIfDateIsAfter() {
         String[] separeteDate = txtData.getText().split("/");
         LocalDate newDate = LocalDate.of(Integer.parseInt(separeteDate[2]), Integer.parseInt(separeteDate[1]), Integer.parseInt(separeteDate[0]));
         LocalDate today = LocalDate.now();
-        
+
         return today.isBefore(newDate);
     }
-    
-    private String nameMonitor1(){
-        if (jComboBoxMonitor1.getSelectedIndex() == 0){
+
+    private String nameMonitor1() {
+        if (jComboBoxMonitor1.getSelectedIndex() == 0) {
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
-        
-        monitor = listaMonitores.get(jComboBoxMonitor1.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+
+        return jComboBoxMonitor1.getSelectedItem().toString();
     }
-    
-    private String nameMonitor2(){
-        if (jComboBoxMonitor2.getSelectedIndex() == 0){
+
+    private String nameMonitor2() {
+        if (jComboBoxMonitor2.getSelectedIndex() == 0) {
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
-        
-        monitor = listaMonitores.get(jComboBoxMonitor2.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+
+        return jComboBoxMonitor2.getSelectedItem().toString();
     }
-    
-    private String nameMonitor3(){
-        if (jComboBoxMonitor3.getSelectedIndex() == 0){
+
+    private String nameMonitor3() {
+        if (jComboBoxMonitor3.getSelectedIndex() == 0) {
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
-        
-        monitor = listaMonitores.get(jComboBoxMonitor3.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+
+        return jComboBoxMonitor3.getSelectedItem().toString();
     }
-    
-    private String nameMonitor4(){
-        if (jComboBoxMonitor4.getSelectedIndex() == 0){
+
+    private String nameMonitor4() {
+        if (jComboBoxMonitor4.getSelectedIndex() == 0) {
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Monitores> listaMonitores = new ArrayList<>();
-        listaMonitores = pdao.readMonitores();
-        Monitores monitor = new Monitores();
-        
-        monitor = listaMonitores.get(jComboBoxMonitor4.getSelectedIndex()-1);
-        return monitor.getNomeMonitor();
+
+        return jComboBoxMonitor4.getSelectedItem().toString();
     }
-    
-    private String nameCurso(){
-        if (jComboBoxCurso.getSelectedIndex() == 0){
+
+    private String nameCurso() {
+        if (jComboBoxCurso.getSelectedIndex() == 0) {
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Cursos> listaCursos = new ArrayList<>();
-        listaCursos = pdao.readCursos();
-        Cursos curso = new Cursos();
-        
-        curso = listaCursos.get(jComboBoxCurso.getSelectedIndex()-1);
-        return curso.getCursoCadastrado();
+
+        return jComboBoxCurso.getSelectedItem().toString();
     }
-    
-    private String nameMateria(){
-        if (jComboBoxMateria.getSelectedIndex() == 0){
+
+    private String nameMateria() {
+        if (jComboBoxMateria.getSelectedIndex() == 0) {
             return "";
         }
-        PetDAO pdao =  new PetDAO();
-        List<Materias> listaMaterias = new ArrayList<>();
-        listaMaterias = pdao.readMaterias();
-        Materias materia = new Materias();
-        
-        materia = listaMaterias.get(jComboBoxMateria.getSelectedIndex()-1);
-        return materia.getMateriasCadastradas();
+
+        return jComboBoxMateria.getSelectedItem().toString();
     }
-    
-    private String defineHour(){
-        if(jRadioButtonHora.isSelected()){
+
+    private String defineHour() {
+        if (jRadioButtonHora.isSelected()) {
             LocalTime nowHour = LocalTime.now();
             return nowHour.toString();
         }
         return txtHora.getText();
-    }   
-    
-    private String defineDate(){
-        if(jRadioButtonHora.isSelected()){
+    }
+
+    private String defineDate() {
+        if (jRadioButtonHora.isSelected()) {
             LocalDate today = LocalDate.now();
             return today.toString();
         }
         String[] separeteDate = txtData.getText().split("/");
         LocalDate newDate = LocalDate.of(Integer.parseInt(separeteDate[2]), Integer.parseInt(separeteDate[1]), Integer.parseInt(separeteDate[0]));
-        
+
         return newDate.toString();
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */

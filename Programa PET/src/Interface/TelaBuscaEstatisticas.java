@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
 import java.util.ArrayList;
@@ -12,8 +7,7 @@ import model.bean.Dados;
 import model.dao.PetDAO;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class TelaBuscaEstatisticas extends javax.swing.JFrame {
 
@@ -22,7 +16,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
      */
     public TelaBuscaEstatisticas() {
         initComponents();
-        
+
         jComboBoxMes.setEnabled(false);
         txtAnoMes.setEnabled(false);
         btnGrafico.setEnabled(false);
@@ -101,7 +95,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jRadioButtonMateria);
-        jRadioButtonMateria.setBounds(70, 160, 100, 23);
+        jRadioButtonMateria.setBounds(70, 160, 100, 18);
 
         jRadioButtonDSemana.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButtonDSemana);
@@ -112,7 +106,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jRadioButtonDSemana);
-        jRadioButtonDSemana.setBounds(70, 190, 120, 23);
+        jRadioButtonDSemana.setBounds(70, 190, 120, 18);
 
         jRadioButtonMes.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButtonMes);
@@ -123,24 +117,25 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jRadioButtonMes);
-        jRadioButtonMes.setBounds(70, 220, 100, 23);
+        jRadioButtonMes.setBounds(70, 220, 100, 18);
 
         jLabel1.setText("Buscar por:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(80, 140, 80, 14);
+        jLabel1.setBounds(80, 140, 80, 16);
 
         jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Janeiro", "Feveiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
+        jComboBoxMes.setToolTipText("");
         jComboBoxMes.setEnabled(false);
         jPanel1.add(jComboBoxMes);
         jComboBoxMes.setBounds(210, 160, 90, 30);
 
         jLabel3.setText("Mês:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(210, 140, 90, 14);
+        jLabel3.setBounds(210, 140, 90, 16);
 
         jLabel4.setText("Ano:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(330, 140, 50, 14);
+        jLabel4.setBounds(330, 140, 50, 16);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET2.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -150,47 +145,52 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
         btnGrafico.setForeground(new java.awt.Color(255, 255, 255));
         btnGrafico.setText("Gráfico");
         btnGrafico.setEnabled(false);
+        btnGrafico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGraficoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnGrafico);
         btnGrafico.setBounds(500, 160, 67, 30);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 640, 290);
+        jPanel1.setBounds(0, 0, 640, 310);
 
         setSize(new java.awt.Dimension(646, 328));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtAnoMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnoMesActionPerformed
-        
+
     }//GEN-LAST:event_txtAnoMesActionPerformed
 
     private void btnTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTabelaActionPerformed
         Dados dado = new Dados();
-        PetDAO pdao =  new PetDAO();
+        PetDAO pdao = new PetDAO();
         List<Dados> listaDados = new ArrayList<>();
         listaDados = pdao.searchData(txtAnoMes.getText());
-        if(listaDados.isEmpty()){
-            JOptionPane.showMessageDialog(rootPane, "ERRO: Nenhuma monitoria cadastrada em " +txtAnoMes.getText()+"!");
+        if (listaDados.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "ERRO: Nenhuma monitoria cadastrada em " + txtAnoMes.getText() + "!");
             txtAnoMes.setText("");
-        }else{
-            if(jRadioButtonMes.isSelected()){
+        } else {
+            if (jRadioButtonMes.isSelected()) {
                 TelaEstMesTabela telaEM = new TelaEstMesTabela(txtAnoMes.getText());
                 telaEM.setVisible(true);
-            }else if (jRadioButtonDSemana.isSelected()){
+            } else if (jRadioButtonDSemana.isSelected()) {
                 TelaEstDiaSemanaTabela telaES = new TelaEstDiaSemanaTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
                 telaES.setVisible(true);
-            }else if (jRadioButtonMateria.isSelected()){
-                 TelaEstMatTabela telaMat = new TelaEstMatTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
-                 telaMat.setVisible(true);
+            } else if (jRadioButtonMateria.isSelected()) {
+                TelaEstMatTabela telaMat = new TelaEstMatTabela(txtAnoMes.getText(), jComboBoxMes.getSelectedIndex());
+                telaMat.setVisible(true);
             }
             txtAnoMes.setText("");
         }
-        
-        
+
+
     }//GEN-LAST:event_btnTabelaActionPerformed
 
     private void jRadioButtonMesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMesActionPerformed
-        if(jRadioButtonMes.isSelected()){
+        if (jRadioButtonMes.isSelected()) {
             jComboBoxMes.setEnabled(false);
             txtAnoMes.setEnabled(true);
             btnGrafico.setEnabled(true);
@@ -199,7 +199,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonMesActionPerformed
 
     private void jRadioButtonDSemanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDSemanaActionPerformed
-        if(jRadioButtonDSemana.isSelected()){
+        if (jRadioButtonDSemana.isSelected()) {
             jComboBoxMes.setEnabled(true);
             txtAnoMes.setEnabled(true);
             btnGrafico.setEnabled(true);
@@ -208,13 +208,36 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButtonDSemanaActionPerformed
 
     private void jRadioButtonMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMateriaActionPerformed
-        if(jRadioButtonMateria.isSelected()){
+        if (jRadioButtonMateria.isSelected()) {
             jComboBoxMes.setEnabled(true);
             txtAnoMes.setEnabled(true);
             btnGrafico.setEnabled(true);
             btnTabela.setEnabled(true);
         }
     }//GEN-LAST:event_jRadioButtonMateriaActionPerformed
+
+    private void btnGraficoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGraficoActionPerformed
+        String anoSelected = txtAnoMes.getText();
+        Dados dado = new Dados();
+        PetDAO pdao = new PetDAO();
+        List<Dados> listaDados = new ArrayList<>();
+        listaDados = pdao.searchData(txtAnoMes.getText());
+        
+        if (listaDados.isEmpty()) {
+            JOptionPane.showMessageDialog(rootPane, "ERRO: Nenhuma monitoria cadastrada em " +anoSelected + "!");
+            txtAnoMes.setText("");
+        } else {
+            if (jRadioButtonMes.isSelected()) {
+                StatisticsGraph telaGraph = new StatisticsGraph(txtAnoMes.getText());
+                telaGraph.setVisible(true);
+            } else if (jRadioButtonDSemana.isSelected()) {
+                
+            } else if (jRadioButtonMateria.isSelected()) {
+                
+            }
+            txtAnoMes.setText("");
+        }
+    }//GEN-LAST:event_btnGraficoActionPerformed
 
     /**
      * @param args the command line arguments

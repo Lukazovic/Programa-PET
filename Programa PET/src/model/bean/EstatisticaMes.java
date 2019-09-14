@@ -1,8 +1,7 @@
 package model.bean;
 
-/**
- *
- * @author Lucas
+/*
+ * @author Lucas Vieira
  */
 public class EstatisticaMes {
     
@@ -36,6 +35,10 @@ public class EstatisticaMes {
         this.novembro = 0;
         this.dezembro = 0;
         this.ano = ano;
+    }
+    
+    public EstatisticaMes(){
+        
     }
 
     public int getTotal() {
