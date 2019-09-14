@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
-//import javax.swing.table.DefaultTableModel;
 import model.bean.Dados;
 import model.bean.EstatisticaMes;
 import model.dao.PetDAO;
 
-/**
- *
- * @author Lucas
+/*
+ * @author Lucas Vieira
  */
 public class TelaEstMesTabela extends javax.swing.JFrame {
 
@@ -25,77 +18,75 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
     
     private String DataText;
     private Object btnEstatisticaMesTabela;
-    
+
     public TelaEstMesTabela(String dataText) {
         initComponents();
         jLabelAno.setText(dataText);
         mostrarEstatisticasTMes(dataText);
     }
-    
+
     public TelaEstMesTabela() {
         initComponents();
     }
-    
-    public void mostrarEstatisticasTMes(String DataText){
+
+    public void mostrarEstatisticasTMes(String DataText) {
         Dados dado = new Dados();
-        PetDAO pdao =  new PetDAO();
+        PetDAO pdao = new PetDAO();
         List<Dados> listaDados = new ArrayList<>();
-        
-        
+
         listaDados = pdao.searchData(DataText);
-        
+
         String sAux;
         dado = listaDados.get(0);
         sAux = dado.getDataMonitoria();
         String[] dataB = sAux.split("-");
         EstatisticaMes m = new EstatisticaMes(dataB[0]);
         m.setTotal(listaDados.size());
-        
-        
-        for (int i=0; i<listaDados.size(); i++){
+
+        for (int i = 0; i < listaDados.size(); i++) {
             sAux = listaDados.get(i).getDataMonitoria();
             String[] dataC = sAux.split("-");
             switch (Integer.parseInt(dataC[1])) {
                 case 1:
-                    m.setJaneiro(m.getJaneiro()+1);
+                    m.setJaneiro(m.getJaneiro() + 1);
                     break;
                 case 2:
-                    m.setFevereiro(m.getFevereiro()+1);
+                    m.setFevereiro(m.getFevereiro() + 1);
                     break;
                 case 3:
-                    m.setMarco(m.getMarco()+1);
+                    m.setMarco(m.getMarco() + 1);
                     break;
                 case 4:
-                    m.setAbril(m.getAbril()+1);
+                    m.setAbril(m.getAbril() + 1);
                     break;
                 case 5:
-                    m.setMaio(m.getMaio()+1);
+                    m.setMaio(m.getMaio() + 1);
                     break;
                 case 6:
-                    m.setJunho(m.getJunho()+1);
+                    m.setJunho(m.getJunho() + 1);
                     break;
                 case 7:
-                    m.setJulho(m.getJulho()+1);
+                    m.setJulho(m.getJulho() + 1);
                     break;
                 case 8:
-                    m.setAgosto(m.getAgosto()+1);
+                    m.setAgosto(m.getAgosto() + 1);
                     break;
                 case 9:
-                    m.setSetembro(m.getSetembro()+1);
+                    m.setSetembro(m.getSetembro() + 1);
                     break;
                 case 10:
-                    m.setOutubro(m.getOutubro()+1);
+                    m.setOutubro(m.getOutubro() + 1);
                     break;
                 case 11:
-                    m.setNovembro(m.getNovembro()+1);
+                    m.setNovembro(m.getNovembro() + 1);
                     break;
                 case 12:
-                    m.setDezembro(m.getDezembro()+1);
+                    m.setDezembro(m.getDezembro() + 1);
                     break;
                 default:
                     break;
             }
-            
+
         }
         double mt, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12;
         mt = m.getTotal();
@@ -108,25 +99,23 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         m7 = m.getJulho();
         m8 = m.getAgosto();
         m9 = m.getSetembro();
-        m10 = m.getOutubro(); 
+        m10 = m.getOutubro();
         m11 = m.getNovembro();
         m12 = m.getDezembro();
-        
-        
-        m1 = m1/mt;
-        m2 = m2/mt;
-        m3 = m3/mt;
-        m4 = m4/mt;
-        m5 = m5/mt;
-        m6 = m6/mt;
-        m7 = m7/mt;
-        m8 = m8/mt;
-        m9 = m9/mt;
-        m10 = m10/mt;
-        m11 = m11/mt;
-        m12 = m12/mt;
-        
-        
+
+        m1 = m1 / mt;
+        m2 = m2 / mt;
+        m3 = m3 / mt;
+        m4 = m4 / mt;
+        m5 = m5 / mt;
+        m6 = m6 / mt;
+        m7 = m7 / mt;
+        m8 = m8 / mt;
+        m9 = m9 / mt;
+        m10 = m10 / mt;
+        m11 = m11 / mt;
+        m12 = m12 / mt;
+
         jLabelJan.setText(NumberFormat.getPercentInstance().format(m1));
         jLabelFev.setText(NumberFormat.getPercentInstance().format(m2));
         jLabelMar.setText(NumberFormat.getPercentInstance().format(m3));
@@ -139,12 +128,9 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         jLabelOut.setText(NumberFormat.getPercentInstance().format(m10));
         jLabelNov.setText(NumberFormat.getPercentInstance().format(m11));
         jLabelDez.setText(NumberFormat.getPercentInstance().format(m12));
-        jLabelContagemM.setText(String.valueOf(m.getTotal() +" Monitorias contadas"));
-        
-        //jLabelJan.setText(sAux);
+        jLabelContagemM.setText(String.valueOf(m.getTotal() + " Monitorias contadas"));
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

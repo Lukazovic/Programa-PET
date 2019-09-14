@@ -1,24 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import model.bean.Dados;
 import model.bean.EstatisticaMateria;
-import model.bean.EstatisticasDiaSem;
 import model.bean.Materias;
 import model.dao.PetDAO;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class TelaEstMatTabela extends javax.swing.JFrame {
 
@@ -28,56 +20,54 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
     public TelaEstMatTabela() {
         initComponents();
     }
-    
+
     public TelaEstMatTabela(String dataText, int mesProcurado) {
         initComponents();
         showMonth(mesProcurado);
         jLabelAno.setText(dataText);
         mostrarEstatisticasMateria(dataText, mesProcurado);
-        
+
     }
-    
-    public void mostrarEstatisticasMateria (String DataText, int mesProcurado){
+
+    public void mostrarEstatisticasMateria(String DataText, int mesProcurado) {
         Dados dado = new Dados();
-        PetDAO pdao =  new PetDAO();
+        PetDAO pdao = new PetDAO();
         List<Dados> listaDados = new ArrayList<>();
-        
-        
+
         listaDados = pdao.searchData(DataText);
-        
+
         Materias dadosDaMateria = new Materias();
         List<Materias> listaMaterias = new ArrayList<>();
         listaMaterias = pdao.readMaterias();
-        
-        
+
         List<EstatisticaMateria> listEstMaterias = new ArrayList<>();
-        
+
         int tamanhoAux = listaMaterias.size();
-        for (int i=0; i<tamanhoAux; i++) {
+        for (int i = 0; i < tamanhoAux; i++) {
             EstatisticaMateria estMateria = new EstatisticaMateria();
             estMateria.setNomeMateria(listaMaterias.get(i).getMateriasCadastradas());
             listEstMaterias.add(estMateria);
         }
-        
+
         String nomeAux;
-       int tamanhoAux2 = listaDados.size();
-        for(int i=0; i<listaDados.size(); i++){
+        int tamanhoAux2 = listaDados.size();
+        for (int i = 0; i < listaDados.size(); i++) {
             dado = listaDados.get(i);
-            for(int j=0; j<listEstMaterias.size(); j++){
-                if(dado.getMateriaAluno().equals(listEstMaterias.get(j).getNomeMateria())){
-                    listEstMaterias.get(j).setQuantidadeMateria(listEstMaterias.get(j).getQuantidadeMateria()+1);
+            for (int j = 0; j < listEstMaterias.size(); j++) {
+                if (dado.getMateriaAluno().equals(listEstMaterias.get(j).getNomeMateria())) {
+                    listEstMaterias.get(j).setQuantidadeMateria(listEstMaterias.get(j).getQuantidadeMateria() + 1);
                 }
             }
         }
-        
+
         DefaultTableModel dtmMonitorias = (DefaultTableModel) jTableMonitorias.getModel();
         dtmMonitorias.setRowCount(0);
-        
+
         tamanhoAux = listEstMaterias.size();
-        for(int i=0; i<tamanhoAux; i++){
-            if(listEstMaterias.get(i).getQuantidadeMateria()!=0){
+        for (int i = 0; i < tamanhoAux; i++) {
+            if (listEstMaterias.get(i).getQuantidadeMateria() != 0) {
                 float estatisticaPorcentagem = listEstMaterias.get(i).getQuantidadeMateria();
-                estatisticaPorcentagem = estatisticaPorcentagem/listaDados.size();
+                estatisticaPorcentagem = estatisticaPorcentagem / listaDados.size();
                 dtmMonitorias.addRow(new Object[]{
                     listEstMaterias.get(i).getNomeMateria(),
                     listEstMaterias.get(i).getQuantidadeMateria(),
@@ -86,21 +76,20 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
             }
         }
         mostrarTotalMonitorias(listaDados.size());
-        
+
     }
-    
-    
-    private void mostrarTotalMonitorias(int totalMonitorias){
+
+    private void mostrarTotalMonitorias(int totalMonitorias) {
         DefaultTableModel dtmMonitorias = (DefaultTableModel) jTableMonitorias.getModel();
         dtmMonitorias.addRow(new Object[]{
-                "Total",
-                totalMonitorias,
-                NumberFormat.getPercentInstance().format(1)
-            });
+            "Total",
+            totalMonitorias,
+            NumberFormat.getPercentInstance().format(1)
+        });
     }
-    
-    private void showMonth (int mesEscolhido){
-        switch(mesEscolhido){
+
+    private void showMonth(int mesEscolhido) {
+        switch (mesEscolhido) {
             case 0:
                 jLabelMes.setText("Ano Inteiro");
                 break;
