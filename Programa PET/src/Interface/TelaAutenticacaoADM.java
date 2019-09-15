@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 public class TelaAutenticacaoADM extends javax.swing.JFrame {
     
     
-    public String login;
-    public String senha;
+    private String login;
+    private String senha;
     /**
      * Creates new form InterfacePrograma
      */
@@ -50,7 +50,7 @@ public class TelaAutenticacaoADM extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(null);
 
-        btnEntrar.setBackground(new java.awt.Color(255, 51, 0));
+        btnEntrar.setBackground(new java.awt.Color(0, 0, 204));
         btnEntrar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
@@ -60,26 +60,39 @@ public class TelaAutenticacaoADM extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnEntrar);
-        btnEntrar.setBounds(190, 310, 73, 23);
+        btnEntrar.setBounds(190, 310, 73, 26);
 
         jLabel2.setText("Senha:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 230, 41, 14);
+        jLabel2.setBounds(40, 230, 41, 16);
 
         jLabel1.setText("Usuário");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(40, 170, 99, 14);
+        jLabel1.setBounds(40, 170, 99, 16);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET3.png"))); // NOI18N
         jPanel1.add(jLabel4);
         jLabel4.setBounds(82, 11, 150, 120);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setText("ADMINISTRADOR");
         jPanel1.add(jLabel3);
         jLabel3.setBounds(69, 142, 195, 22);
+
+        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUsuarioKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtUsuario);
         txtUsuario.setBounds(40, 190, 220, 30);
+
+        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSenhaKeyPressed(evt);
+            }
+        });
         jPanel1.add(txtSenha);
         txtSenha.setBounds(40, 250, 220, 30);
 
@@ -93,16 +106,45 @@ public class TelaAutenticacaoADM extends javax.swing.JFrame {
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
         if (this.checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()) ) == true)
         {
-            JOptionPane.showMessageDialog(rootPane, "Bem Vindo !");
-            //this.dispose();
-            //TelaPrincipalPET telaPrincipal = new TelaPrincipalPET();
-            //telaPrincipal.setVisible(true);
+            this.dispose();
+            TelaPrincipalADM telaPrincipalADM = new TelaPrincipalADM();
+            telaPrincipalADM.setVisible(true);
         }else
         {
             JOptionPane.showMessageDialog(null, "Acesso Negado!");
             this.dispose();
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
+
+    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if (this.checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()) ) == true)
+            {
+                this.dispose();
+                TelaPrincipalADM telaPrincipalADM = new TelaPrincipalADM();
+                telaPrincipalADM.setVisible(true);
+            }else
+            {
+                JOptionPane.showMessageDialog(null, "Acesso Negado!");
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_txtSenhaKeyPressed
+
+    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            if (this.checkLogin(txtUsuario.getText(), new String(txtSenha.getPassword()) ) == true)
+            {
+                this.dispose();
+                TelaPrincipalADM telaPrincipalADM = new TelaPrincipalADM();
+                telaPrincipalADM.setVisible(true);
+            }else
+            {
+                JOptionPane.showMessageDialog(null, "Acesso Negado!");
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_txtUsuarioKeyPressed
 
     /**
      * @param args the command line arguments

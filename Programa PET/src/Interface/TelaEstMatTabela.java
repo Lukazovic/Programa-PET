@@ -40,8 +40,25 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
         List<Materias> listaMaterias = new ArrayList<>();
         listaMaterias = pdao.readMaterias();
 
+        String sAux;
         List<EstatisticaMateria> listEstMaterias = new ArrayList<>();
-
+        
+        //Filtrando datas por mês
+        List<Dados> listaDados2 = new ArrayList<>();
+        if(mesProcurado != 0){
+            for (int i=0; i<listaDados.size(); i++){
+                sAux = listaDados.get(i).getDataMonitoria();
+                String[] dataC = sAux.split("-");
+                if(Integer.parseInt(dataC[1]) == mesProcurado){
+                    listaDados2.add(listaDados.get(i));
+                }
+            }
+        }else{
+            for (int i=0; i<listaDados.size(); i++){
+                listaDados2.add(listaDados.get(i));
+            }
+        }
+        
         int tamanhoAux = listaMaterias.size();
         for (int i = 0; i < tamanhoAux; i++) {
             EstatisticaMateria estMateria = new EstatisticaMateria();
@@ -50,9 +67,9 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
         }
 
         String nomeAux;
-        int tamanhoAux2 = listaDados.size();
-        for (int i = 0; i < listaDados.size(); i++) {
-            dado = listaDados.get(i);
+        int tamanhoAux2 = listaDados2.size();
+        for (int i = 0; i < listaDados2.size(); i++) {
+            dado = listaDados2.get(i);
             for (int j = 0; j < listEstMaterias.size(); j++) {
                 if (dado.getMateriaAluno().equals(listEstMaterias.get(j).getNomeMateria())) {
                     listEstMaterias.get(j).setQuantidadeMateria(listEstMaterias.get(j).getQuantidadeMateria() + 1);
@@ -67,7 +84,7 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
         for (int i = 0; i < tamanhoAux; i++) {
             if (listEstMaterias.get(i).getQuantidadeMateria() != 0) {
                 float estatisticaPorcentagem = listEstMaterias.get(i).getQuantidadeMateria();
-                estatisticaPorcentagem = estatisticaPorcentagem / listaDados.size();
+                estatisticaPorcentagem = estatisticaPorcentagem / listaDados2.size();
                 dtmMonitorias.addRow(new Object[]{
                     listEstMaterias.get(i).getNomeMateria(),
                     listEstMaterias.get(i).getQuantidadeMateria(),
@@ -75,7 +92,7 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
                 });
             }
         }
-        mostrarTotalMonitorias(listaDados.size());
+        mostrarTotalMonitorias(listaDados2.size());
 
     }
 

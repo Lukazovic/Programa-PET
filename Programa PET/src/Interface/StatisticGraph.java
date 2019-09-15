@@ -5,8 +5,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import model.bean.Dados;
+import model.bean.EstatisticaMateria;
 import model.bean.EstatisticaMes;
 import model.bean.EstatisticasDiaSem;
+import model.bean.Materias;
 import model.dao.PetDAO;
 
 /*
@@ -22,7 +24,7 @@ public class StatisticGraph extends javax.swing.JFrame {
         
         switch (option){
             case 1:
-                
+                showGraphByMateria(dataText, mesProcurado);
                 break;
             case 2:
                 showGraphByDayOfWeek(dataText, mesProcurado);
@@ -220,7 +222,71 @@ public class StatisticGraph extends javax.swing.JFrame {
         }
         return "";
     }
+    
+    private List<EstatisticaMateria> calculateEstMateria (String DataText, int mesProcurado){
+        Dados dado = new Dados();
+        PetDAO pdao = new PetDAO();
+        List<Dados> listaDados = new ArrayList<>();
 
+        listaDados = pdao.searchData(DataText);
+
+        Materias dadosDaMateria = new Materias();
+        List<Materias> listaMaterias = new ArrayList<>();
+        listaMaterias = pdao.readMaterias();
+        
+        String sAux;
+        List<EstatisticaMateria> listEstMaterias = new ArrayList<>();
+
+        //Filtrando datas por mês
+        List<Dados> listaDados2 = new ArrayList<>();
+        if(mesProcurado != 0){
+            for (int i=0; i<listaDados.size(); i++){
+                sAux = listaDados.get(i).getDataMonitoria();
+                String[] dataC = sAux.split("-");
+                if(Integer.parseInt(dataC[1]) == mesProcurado){
+                    listaDados2.add(listaDados.get(i));
+                }
+            }
+        }else{
+            for (int i=0; i<listaDados.size(); i++){
+                listaDados2.add(listaDados.get(i));
+            }
+        }
+        
+        int tamanhoAux = listaMaterias.size();
+        for (int i = 0; i < tamanhoAux; i++) {
+            EstatisticaMateria estMateria = new EstatisticaMateria();
+            estMateria.setNomeMateria(listaMaterias.get(i).getMateriasCadastradas());
+            listEstMaterias.add(estMateria);
+        }
+
+        String nomeAux;
+        int tamanhoAux2 = listaDados2.size();
+        for (int i = 0; i < listaDados2.size(); i++) {
+            dado = listaDados2.get(i);
+            for (int j = 0; j < listEstMaterias.size(); j++) {
+                if (dado.getMateriaAluno().equals(listEstMaterias.get(j).getNomeMateria())) {
+                    listEstMaterias.get(j).setQuantidadeMateria(listEstMaterias.get(j).getQuantidadeMateria() + 1);
+                }
+            }
+        }
+        
+        return listEstMaterias;
+    }
+    
+    private void showGraphByMateria(String dataText, int mesProcurado){
+        List<EstatisticaMateria> listaMateria = calculateEstMateria(dataText, mesProcurado);
+        
+        InfoEstMateriaGraph graficoBarra = new InfoEstMateriaGraph();
+        
+        this.jPanel1.setLayout(new BorderLayout());
+        
+        String aux = setNameMes(mesProcurado);
+        
+        this.jPanel1.add(graficoBarra.criarGrafico(listaMateria, aux+dataText));
+        pack();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
