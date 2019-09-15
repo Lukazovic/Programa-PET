@@ -18,6 +18,7 @@
                   <Image iconType="3" name="/Icones PET/add.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nova Monitoria"/>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para Cadastrar uma nova Monitoria"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
@@ -29,6 +30,7 @@
                   <Image iconType="3" name="/Icones PET/application_view_detail.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dados"/>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para verificar todas a monitorias cadastradas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
@@ -40,10 +42,20 @@
                   <Image iconType="3" name="/Icones PET/chart_bar.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Estat&#xed;sticas"/>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para verificar as estat&#xed;sticas de Monitorias"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem3ActionPerformed"/>
               </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icones PET/user_suit.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Administrador"/>
+                <Property name="toolTipText" type="java.lang.String" value="Op&#xe7;&#xf5;es de Administrador"/>
+              </Properties>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>
@@ -51,6 +63,7 @@
                   <Image iconType="3" name="/Icones PET/cross.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Fechar"/>
+                <Property name="toolTipText" type="java.lang.String" value="Fechar o programa"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem4ActionPerformed"/>
@@ -152,6 +165,7 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tabela de Dados"/>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para verificar todas a monitorias cadastradas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
@@ -168,6 +182,7 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Administrador"/>
+                <Property name="toolTipText" type="java.lang.String" value="Op&#xe7;&#xf5;es de Administrador"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -184,6 +199,7 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Estat&#xed;sticas"/>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para verificar as estat&#xed;sticas de Monitorias"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
@@ -200,6 +216,7 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nova Monitoria"/>
+                <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para Cadastrar uma nova Monitoria"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>

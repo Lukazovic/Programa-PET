@@ -1,22 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
-public class TelaPrincipalPET extends javax.swing.JFrame {
+public class TelaPrincipalADM extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaPrincipalPET
      */
-    public TelaPrincipalPET() {
+    public TelaPrincipalADM() {
         initComponents();
     }
 
@@ -44,11 +38,9 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Grupo PET Física");
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administrador PET Física");
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -56,13 +48,14 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setText("Bem Vindo(a)");
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Administrador");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(390, 30, 240, 50);
+        jLabel2.setBounds(380, 30, 250, 50);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Tabela de Dados");
-        jButton1.setToolTipText("Selecione esta opção para verificar todas a monitorias cadastradas");
+        jButton1.setText("Cursos");
+        jButton1.setToolTipText("Adicionar ou Remover cursos");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -72,8 +65,8 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
         jButton1.setBounds(490, 90, 160, 50);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Administrador");
-        jButton2.setToolTipText("Opções de Administrador");
+        jButton2.setText("Monitorias");
+        jButton2.setToolTipText("Opções avançadas para Monitorias");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -83,8 +76,8 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
         jButton2.setBounds(490, 170, 160, 50);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton3.setText("Estatísticas");
-        jButton3.setToolTipText("Selecione esta opção para verificar as estatísticas de Monitorias");
+        jButton3.setText("Matérias");
+        jButton3.setToolTipText("Adicionar ou Remover matérias");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -94,8 +87,8 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
         jButton3.setBounds(290, 170, 160, 50);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setText("Nova Monitoria");
-        jButton4.setToolTipText("Selecione esta opção para Cadastrar uma nova Monitoria");
+        jButton4.setText("Petianos");
+        jButton4.setToolTipText("Adicionar ou Remover Petianos");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -163,25 +156,6 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/help.png"))); // NOI18N
-        jMenu2.setText("Sobre");
-        jMenu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu2ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/vcard.png"))); // NOI18N
-        jMenuItem5.setText("Informações");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         setSize(new java.awt.Dimension(716, 331));
@@ -207,32 +181,21 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        JOptionPane.showMessageDialog(null, "Created by: Lucas Vieira");
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
-
-    }//GEN-LAST:event_jMenu2ActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        TelaNovaMonitoria telaNovaMoni = new TelaNovaMonitoria();
-        telaNovaMoni.setVisible(true);
+        TelaPetianos petianos = new TelaPetianos();
+        petianos.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TelaTabelaDados telaDados = new TelaTabelaDados();
-        telaDados.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        TelaBuscaEstatisticas telaBuscaEst = new TelaBuscaEstatisticas();
-        telaBuscaEst.setVisible(true);
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        TelaAutenticacaoADM telaAutADM = new TelaAutenticacaoADM();
-        telaAutADM.setVisible(true);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -252,20 +215,21 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalPET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalPET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalPET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalPET.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaPrincipalADM.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaPrincipalPET().setVisible(true);
+                new TelaPrincipalADM().setVisible(true);
             }
         });
     }
@@ -278,13 +242,11 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
