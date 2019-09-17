@@ -4,7 +4,7 @@ package model.bean;
  * @author Lucas Vieira
  */
 public class EstatisticaMateria {
-    
+
     private String nomeMateria;
     private int quantidadeMateria;
 
@@ -23,7 +23,5 @@ public class EstatisticaMateria {
     public void setQuantidadeMateria(int quantidadeMateria) {
         this.quantidadeMateria = quantidadeMateria;
     }
-    
-    
-    
+
 }

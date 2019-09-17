@@ -1,11 +1,10 @@
 package model.bean;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class EstatisticasDiaSem {
-    
+
     private int total;
     private int domingo;
     private int segunda;
@@ -15,13 +14,13 @@ public class EstatisticasDiaSem {
     private int sexta;
     private int sabado;
     private String mes;
-    
-    public EstatisticasDiaSem(){
-        
+
+    public EstatisticasDiaSem() {
+
     }
-    
-    public EstatisticasDiaSem(int mes){
-        switch(mes){
+
+    public EstatisticasDiaSem(int mes) {
+        switch (mes) {
             case 0:
                 this.mes = "";
                 break;
@@ -62,7 +61,7 @@ public class EstatisticasDiaSem {
                 this.mes = "Dezembro";
                 break;
         }
-        
+
         this.domingo = 0;
         this.segunda = 0;
         this.terca = 0;
@@ -144,6 +143,5 @@ public class EstatisticasDiaSem {
     public void setTotal(int total) {
         this.total = total;
     }
-    
-    
+
 }

@@ -4,7 +4,7 @@ package model.bean;
  * @author Lucas Vieira
  */
 public class EstatisticaMes {
-    
+
     private int total;
     private int janeiro;
     private int fevereiro;
@@ -19,8 +19,8 @@ public class EstatisticaMes {
     private int novembro;
     private int dezembro;
     private String ano;
-    
-    public EstatisticaMes(String ano){
+
+    public EstatisticaMes(String ano) {
         this.total = 0;
         this.janeiro = 0;
         this.fevereiro = 0;
@@ -36,9 +36,9 @@ public class EstatisticaMes {
         this.dezembro = 0;
         this.ano = ano;
     }
-    
-    public EstatisticaMes(){
-        
+
+    public EstatisticaMes() {
+
     }
 
     public int getTotal() {
@@ -152,6 +152,5 @@ public class EstatisticaMes {
     public void setAno(String ano) {
         this.ano = ano;
     }
-    
-    
+
 }
