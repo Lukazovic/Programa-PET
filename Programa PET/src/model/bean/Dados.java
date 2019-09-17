@@ -1,7 +1,5 @@
 package model.bean;
 
-import java.time.LocalDate;
-
 /**
  * @author Lucas Vieira
  */
@@ -106,8 +104,4 @@ public class Dados {
     public void setNomeMonitor4(String nomeMonitor4) {
         this.nomeMonitor4 = nomeMonitor4;
     }
-    
-    
-    
-    
 }

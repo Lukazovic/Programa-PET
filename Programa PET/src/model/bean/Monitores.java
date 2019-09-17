@@ -5,14 +5,14 @@ package model.bean;
  */
 public class Monitores {
     
-    private int RAmonitor;
+    private String RAmonitor;
     private String nomeMonitor;
 
-    public int getRAmonitor() {
+    public String getRAmonitor() {
         return RAmonitor;
     }
 
-    public void setRAmonitor(int RAmonitor) {
+    public void setRAmonitor(String RAmonitor) {
         this.RAmonitor = RAmonitor;
     }
 

@@ -11,14 +11,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import model.bean.Dados;
-import java.time.LocalDate;
 import model.bean.Cursos;
 import model.bean.Materias;
 import model.bean.Monitores;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class PetDAO {
     
@@ -456,7 +454,7 @@ public class PetDAO {
             while (rs.next()){
                 Monitores monitor = new Monitores();
                 
-                monitor.setRAmonitor(rs.getInt("RA"));
+                monitor.setRAmonitor(rs.getString("RA"));
                 monitor.setNomeMonitor(rs.getString("nomeMonitor"));
                 
                 listaMonitores.add(monitor);
@@ -525,5 +523,132 @@ public class PetDAO {
             ConnectionFactory.closeConnection(con, stmt, rs);
         }
         return listaMaterias;
+    }
+    
+    public void deleteMonitor(Monitores monitor){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("DELETE FROM monitorespet WHERE RA = ?");
+            stmt.setString(1, monitor.getRAmonitor());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Monitor removido com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao remover monitor: " +ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    public void saveNewMonitor(Monitores monitor){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("INSERT INTO monitorespet (RA,nomeMonitor)VALUES(?,?)");
+            stmt.setString(1, monitor.getRAmonitor());
+            stmt.setString(2, monitor.getNomeMonitor());
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar novo Monitor: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    public void deleteDado(Dados d){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("DELETE FROM dadospet WHERE contagemMonitorias = ?");
+            stmt.setString(1, String.valueOf(d.getContagemMonitoria()));
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Monitoria removida com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao remover monitoria: " +ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    public void saveNewCurso(Cursos curso){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("INSERT INTO cursospet (cursoCadastrado)VALUES(?)");
+            stmt.setString(1, curso.getCursoCadastrado());
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar novo Curso: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    public void deleteCurso(Cursos curso){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("DELETE FROM cursospet WHERE cursoCadastrado = ?");
+            stmt.setString(1, curso.getCursoCadastrado());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Curso removido com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao remover curso: " +ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    
+    public void saveNewMateria(Materias materia){
+        
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try {
+            stmt = con.prepareStatement("INSERT INTO materiaspet (materiaCadastrada)VALUES(?)");
+            stmt.setString(1, materia.getMateriasCadastradas());
+            
+            stmt.executeUpdate();
+            
+            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao adicionar nova Matéria: "+ex);
+        }finally{
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+    
+    public void deleteMateria(Materias materia){
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("DELETE FROM materiaspet WHERE materiaCadastrada = ?");
+            stmt.setString(1, materia.getMateriasCadastradas());
+            
+            stmt.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Matéria removida com sucesso!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao remover matéria: " +ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
     }
 }

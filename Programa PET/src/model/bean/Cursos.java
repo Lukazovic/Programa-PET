@@ -1,8 +1,7 @@
 package model.bean;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class Cursos {
     
@@ -15,6 +14,4 @@ public class Cursos {
     public void setCursoCadastrado(String cursoCadastrado) {
         this.cursoCadastrado = cursoCadastrado;
     }
-    
-    
 }

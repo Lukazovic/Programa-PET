@@ -1,6 +1,5 @@
 package Interface;
 
-import javax.swing.JOptionPane;
 
 /**
  * @author Lucas Vieira
@@ -48,8 +47,8 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Administrador");
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel2.setText("Administrador(a)");
         jPanel1.add(jLabel2);
         jLabel2.setBounds(380, 30, 250, 50);
 
@@ -105,6 +104,9 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(0, 0, 710, 280);
+
+        jMenuBar1.setBackground(new java.awt.Color(255, 0, 0));
+        jMenuBar1.setForeground(new java.awt.Color(255, 0, 0));
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/bullet_wrench.png"))); // NOI18N
         jMenu1.setText("Opções");
@@ -187,15 +189,18 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        TelaAdmCursos telaCursos = new TelaAdmCursos();
+        telaCursos.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        
+        TelaAdmMaterias telaMateria = new TelaAdmMaterias();
+        telaMateria.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
+        TelaAdmDados dadosADM = new TelaAdmDados();
+        dadosADM.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
