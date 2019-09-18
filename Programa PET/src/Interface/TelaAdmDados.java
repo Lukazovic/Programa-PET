@@ -4,15 +4,13 @@ import javax.swing.table.DefaultTableModel;
 import Interface.TelaAdmDados;
 import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import model.bean.Dados;
 import model.dao.PetDAO;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class TelaAdmDados extends javax.swing.JFrame {
 
@@ -30,18 +28,14 @@ public class TelaAdmDados extends javax.swing.JFrame {
         
         String[] dataConvertida = dataS.split("-");
         
-        //LocalDate dataCerta = LocalDate.of(Integer.parseInt(dataConvertida[2]), Integer.parseInt(dataConvertida[1]), Integer.parseInt(dataConvertida[0]));
-        
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         
         Calendar data = new GregorianCalendar(Integer.parseInt(dataConvertida[0]), (Integer.parseInt(dataConvertida[1])-1), Integer.parseInt(dataConvertida[2]));
         
-        //return dataCerta.toString();
         return sdf.format(data.getTime());
     }
     
     public void readTabelaDados (){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
@@ -67,7 +61,6 @@ public class TelaAdmDados extends javax.swing.JFrame {
     }
     
     public void readTabelaDadosForMonitor1 (String monitor){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
@@ -93,10 +86,8 @@ public class TelaAdmDados extends javax.swing.JFrame {
     
     
     public void readTabelaDadosForMonitor2 (String monitor){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
-        //dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
         
         for (Dados d: pdao.searchMonitor2(monitor)){
@@ -118,10 +109,8 @@ public class TelaAdmDados extends javax.swing.JFrame {
     }
     
     public void readTabelaDadosForMonitor3 (String monitor){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
-        //dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
         
         for (Dados d: pdao.searchMonitor3(monitor)){
@@ -143,10 +132,8 @@ public class TelaAdmDados extends javax.swing.JFrame {
     }
     
     public void readTabelaDadosForMonitor4 (String monitor){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
-        //dtmDados.setNumRows(0);
         PetDAO pdao =  new PetDAO();
         
         for (Dados d: pdao.searchMonitor4(monitor)){
@@ -168,7 +155,6 @@ public class TelaAdmDados extends javax.swing.JFrame {
     }
     
     public void readTabelaDadosForCurso (String curso){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
@@ -193,7 +179,6 @@ public class TelaAdmDados extends javax.swing.JFrame {
     }
     
     public void readTabelaDadosForMateria (String materia){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
@@ -218,7 +203,6 @@ public class TelaAdmDados extends javax.swing.JFrame {
     }
     
     public void readTabelaDadosForData (String data){
-        //DefaultTableModel dtmDados = (DefaultTableModel) btnSalvarDados.getModel();
         String dataCerta;
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);

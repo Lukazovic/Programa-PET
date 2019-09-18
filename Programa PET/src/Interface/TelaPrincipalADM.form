@@ -18,14 +18,15 @@
               <Image iconType="3" name="/Icones PET/bullet_wrench.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
+            <Property name="toolTipText" type="java.lang.String" value="Op&#xe7;&#xf5;es de Administrador"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icones PET/add.png"/>
+                  <Image iconType="3" name="/Icones PET/user_edit.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Nova Monitoria"/>
+                <Property name="text" type="java.lang.String" value="Petianos"/>
                 <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para Cadastrar uma nova Monitoria"/>
               </Properties>
               <Events>
@@ -35,9 +36,9 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icones PET/application_view_detail.png"/>
+                  <Image iconType="3" name="/Icones PET/report_edit.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Dados"/>
+                <Property name="text" type="java.lang.String" value="Cursos"/>
                 <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para verificar todas a monitorias cadastradas"/>
               </Properties>
               <Events>
@@ -47,9 +48,9 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icones PET/chart_bar.png"/>
+                  <Image iconType="3" name="/Icones PET/book_edit.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Estat&#xed;sticas"/>
+                <Property name="text" type="java.lang.String" value="Mat&#xe9;rias"/>
                 <Property name="toolTipText" type="java.lang.String" value="Selecione esta op&#xe7;&#xe3;o para verificar as estat&#xed;sticas de Monitorias"/>
               </Properties>
               <Events>
@@ -59,11 +60,26 @@
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/Icones PET/user_suit.png"/>
+                  <Image iconType="3" name="/Icones PET/date_edit.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Administrador"/>
+                <Property name="text" type="java.lang.String" value="Monitorias"/>
                 <Property name="toolTipText" type="java.lang.String" value="Op&#xe7;&#xf5;es de Administrador"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem6ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+              <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/Icones PET/arrow_left.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Tela Principal"/>
+                <Property name="toolTipText" type="java.lang.String" value="Voltar para a tela Principal do Programa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem5ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
               <Properties>

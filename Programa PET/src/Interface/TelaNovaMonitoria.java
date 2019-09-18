@@ -341,9 +341,7 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
         if (txtNomeAluno.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "ERRO: Insira o nome do Aluno!");
             return false;
-        }/*else if(Integer.parseInt(txtNomeAluno.getText()) > 30){
-            JOptionPane.showMessageDialog(null, "ERRO: Nome do aluno contém mais de 30 letras!");
-        }*/
+        }
         return true;
     }
 

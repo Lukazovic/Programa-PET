@@ -10,6 +10,7 @@
               <Image iconType="3" name="/Icones PET/bullet_wrench.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
+            <Property name="toolTipText" type="java.lang.String" value="Op&#xe7;&#xf5;es para o programa"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
