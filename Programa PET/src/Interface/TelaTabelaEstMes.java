@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
 import javax.swing.table.DefaultTableModel;
@@ -11,14 +6,10 @@ import model.dao.PetDAO;
 import Interface.TelaTabelaEstMes;
 import java.util.ArrayList;
 import java.util.List;
-import Interface.TelaBuscaEstatisticas;
-import java.sql.PreparedStatement;
-import java.text.NumberFormat;
 import model.bean.EstatisticaMes;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class TelaTabelaEstMes extends javax.swing.JFrame {
 
@@ -34,7 +25,6 @@ public class TelaTabelaEstMes extends javax.swing.JFrame {
     
     public TelaTabelaEstMes() {
         initComponents();
-        //mostrarEstatisticasTMes();
     }
     
     public TelaTabelaEstMes(String DataText){
@@ -47,8 +37,6 @@ public class TelaTabelaEstMes extends javax.swing.JFrame {
         PetDAO pdao =  new PetDAO();
         List<Dados> listaDados = new ArrayList<>();
         
-        
-        //PreparedStatement stmt = null;
         listaDados = pdao.searchData(DataText);
         
         String sAux;
@@ -117,8 +105,6 @@ public class TelaTabelaEstMes extends javax.swing.JFrame {
         m10 = m.getOutubro(); 
         m11 = m.getNovembro();
         m12 = m.getDezembro();
-        
-        //NumberFormat.getPercentInstance().format(Número) para converter os valores para %
         
         
         DefaultTableModel dtmDados = (DefaultTableModel) jTable2.getModel();

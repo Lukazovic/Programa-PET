@@ -27,13 +27,6 @@ public class TelaAdmCursos extends javax.swing.JFrame {
         DefaultTableModel dtmDados = (DefaultTableModel) jTable1.getModel();
         dtmDados.setNumRows(0);
         
-        /*PetDAO pdao =  new PetDAO();
-        for(Cursos curso: pdao.readCursos()){
-            dtmDados.addRow(new Object[]{
-                curso.getCursoCadastrado()
-            });
-        }*/
-        
         PetDAO pdao = new PetDAO();
 
         List<Cursos> listaCursos = new ArrayList<>();

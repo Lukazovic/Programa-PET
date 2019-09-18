@@ -1,16 +1,10 @@
-/*
- Local
-Nome Monitor
-Hora Nome dos Alunos/ quantidade
- */
 package Interface;
 
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class TelaLoginPET extends javax.swing.JFrame {
     

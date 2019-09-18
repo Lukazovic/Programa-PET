@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
 import javax.swing.JOptionPane;
 
 /**
- *
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class TelaPrincipalPET extends javax.swing.JFrame {
 
@@ -115,6 +109,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/bullet_wrench.png"))); // NOI18N
         jMenu1.setText("Opções");
+        jMenu1.setToolTipText("Opções para o programa");
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/add.png"))); // NOI18N
         jMenuItem1.setText("Nova Monitoria");

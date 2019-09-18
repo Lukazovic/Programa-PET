@@ -1,7 +1,6 @@
 package Interface;
 
 import java.awt.Dimension;
-import model.bean.EstatisticaMes;
 import model.bean.EstatisticasDiaSem;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -13,7 +12,6 @@ import org.jfree.data.category.DefaultCategoryDataset;
 /**
  * @author Lucas Vieira
  */
-
 public class InfoEstDiaSemGraph {
 
     public CategoryDataset createDataSet(EstatisticasDiaSem diaSemana) {

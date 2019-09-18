@@ -36,6 +36,7 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -110,9 +111,10 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/bullet_wrench.png"))); // NOI18N
         jMenu1.setText("Opções");
+        jMenu1.setToolTipText("Opções de Administrador");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/add.png"))); // NOI18N
-        jMenuItem1.setText("Nova Monitoria");
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/user_edit.png"))); // NOI18N
+        jMenuItem1.setText("Petianos");
         jMenuItem1.setToolTipText("Selecione esta opção para Cadastrar uma nova Monitoria");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,8 +123,8 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/application_view_detail.png"))); // NOI18N
-        jMenuItem2.setText("Dados");
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/report_edit.png"))); // NOI18N
+        jMenuItem2.setText("Cursos");
         jMenuItem2.setToolTipText("Selecione esta opção para verificar todas a monitorias cadastradas");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,8 +133,8 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/chart_bar.png"))); // NOI18N
-        jMenuItem3.setText("Estatísticas");
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/book_edit.png"))); // NOI18N
+        jMenuItem3.setText("Matérias");
         jMenuItem3.setToolTipText("Selecione esta opção para verificar as estatísticas de Monitorias");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,10 +143,25 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/user_suit.png"))); // NOI18N
-        jMenuItem6.setText("Administrador");
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/date_edit.png"))); // NOI18N
+        jMenuItem6.setText("Monitorias");
         jMenuItem6.setToolTipText("Opções de Administrador");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
+
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/arrow_left.png"))); // NOI18N
+        jMenuItem5.setText("Tela Principal");
+        jMenuItem5.setToolTipText("Voltar para a tela Principal do Programa");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
 
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones PET/cross.png"))); // NOI18N
         jMenuItem4.setText("Fechar");
@@ -165,18 +182,18 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        TelaNovaMonitoria telaNovaMoni = new TelaNovaMonitoria();
-        telaNovaMoni.setVisible(true);
+        TelaPetianos petianos = new TelaPetianos();
+        petianos.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        TelaTabelaDados telaDados = new TelaTabelaDados();
-        telaDados.setVisible(true);
+        TelaAdmCursos telaCursos = new TelaAdmCursos();
+        telaCursos.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        TelaBuscaEstatisticas telaBuscaEst = new TelaBuscaEstatisticas();
-        telaBuscaEst.setVisible(true);
+        TelaAdmMaterias telaMateria = new TelaAdmMaterias();
+        telaMateria.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -202,6 +219,15 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
         TelaAdmDados dadosADM = new TelaAdmDados();
         dadosADM.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        TelaAdmDados dadosADM = new TelaAdmDados();
+        dadosADM.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,6 +278,7 @@ public class TelaPrincipalADM extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

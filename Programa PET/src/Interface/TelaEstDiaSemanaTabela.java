@@ -4,14 +4,12 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 import model.bean.Dados;
-import model.bean.EstatisticaMes;
 import model.dao.PetDAO;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import model.bean.EstatisticasDiaSem;
 
 /**
- * @author Lucas
+ * @author Lucas Vieira
  */
 public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
 
