@@ -188,103 +188,103 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
 
         jLabel3.setText("Janeiro:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(60, 140, 50, 14);
+        jLabel3.setBounds(30, 140, 70, 15);
 
         jLabel4.setText("Feveiro:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(60, 160, 50, 14);
+        jLabel4.setBounds(30, 160, 70, 15);
 
         jLabel5.setText("Março:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(60, 180, 50, 14);
+        jLabel5.setBounds(30, 180, 70, 15);
 
         jLabel6.setText("Abril:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(60, 200, 50, 14);
+        jLabel6.setBounds(30, 200, 70, 15);
 
         jLabel7.setText("Maio:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(60, 220, 50, 14);
+        jLabel7.setBounds(30, 220, 70, 15);
 
         jLabel8.setText("Julho:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(60, 240, 50, 14);
+        jLabel8.setBounds(30, 240, 70, 15);
 
         jLabelJun.setText("jLabel8");
         jPanel1.add(jLabelJun);
-        jLabelJun.setBounds(130, 240, 34, 14);
+        jLabelJun.setBounds(120, 240, 51, 15);
 
         jLabelJan.setText("jLabel3");
         jPanel1.add(jLabelJan);
-        jLabelJan.setBounds(130, 140, 34, 14);
+        jLabelJan.setBounds(120, 140, 51, 15);
 
         jLabelFev.setText("jLabel4");
         jPanel1.add(jLabelFev);
-        jLabelFev.setBounds(130, 160, 34, 14);
+        jLabelFev.setBounds(120, 160, 51, 15);
 
         jLabelMar.setText("jLabel5");
         jPanel1.add(jLabelMar);
-        jLabelMar.setBounds(130, 180, 34, 14);
+        jLabelMar.setBounds(120, 180, 51, 15);
 
         jLabelAbr.setText("jLabel6");
         jPanel1.add(jLabelAbr);
-        jLabelAbr.setBounds(130, 200, 34, 14);
+        jLabelAbr.setBounds(120, 200, 51, 15);
 
         jLabelMai.setText("jLabel7");
         jPanel1.add(jLabelMai);
-        jLabelMai.setBounds(130, 220, 34, 14);
+        jLabelMai.setBounds(120, 220, 51, 15);
 
         jLabelDez1.setText("Dezembro:");
         jPanel1.add(jLabelDez1);
-        jLabelDez1.setBounds(220, 240, 60, 14);
+        jLabelDez1.setBounds(203, 240, 77, 15);
 
         jLabelJul1.setText("Julho:");
         jPanel1.add(jLabelJul1);
-        jLabelJul1.setBounds(220, 140, 60, 14);
+        jLabelJul1.setBounds(200, 140, 80, 15);
 
         jLabelAgo1.setText("Agosto:");
         jPanel1.add(jLabelAgo1);
-        jLabelAgo1.setBounds(220, 160, 60, 14);
+        jLabelAgo1.setBounds(200, 160, 80, 15);
 
         jLabelSet1.setText("Setembro:");
         jPanel1.add(jLabelSet1);
-        jLabelSet1.setBounds(220, 180, 60, 14);
+        jLabelSet1.setBounds(200, 180, 80, 15);
 
         jLabelOut1.setText("Outubro:");
         jPanel1.add(jLabelOut1);
-        jLabelOut1.setBounds(220, 200, 60, 14);
+        jLabelOut1.setBounds(200, 200, 80, 15);
 
         jLabelNov1.setText("Novembro:");
         jPanel1.add(jLabelNov1);
-        jLabelNov1.setBounds(220, 220, 60, 14);
+        jLabelNov1.setBounds(200, 220, 80, 15);
 
         jLabelDez.setText("jLabel8");
         jPanel1.add(jLabelDez);
-        jLabelDez.setBounds(300, 240, 34, 14);
+        jLabelDez.setBounds(300, 240, 51, 15);
 
         jLabelJul.setText("jLabel3");
         jPanel1.add(jLabelJul);
-        jLabelJul.setBounds(300, 140, 34, 14);
+        jLabelJul.setBounds(300, 140, 51, 15);
 
         jLabelAgo.setText("jLabel4");
         jPanel1.add(jLabelAgo);
-        jLabelAgo.setBounds(300, 160, 34, 14);
+        jLabelAgo.setBounds(300, 160, 51, 15);
 
         jLabelSet.setText("jLabel5");
         jPanel1.add(jLabelSet);
-        jLabelSet.setBounds(300, 180, 34, 14);
+        jLabelSet.setBounds(300, 180, 51, 15);
 
         jLabelOut.setText("jLabel6");
         jPanel1.add(jLabelOut);
-        jLabelOut.setBounds(300, 200, 34, 14);
+        jLabelOut.setBounds(300, 200, 51, 15);
 
         jLabelNov.setText("jLabel7");
         jPanel1.add(jLabelNov);
-        jLabelNov.setBounds(300, 220, 34, 14);
+        jLabelNov.setBounds(300, 220, 51, 15);
 
         jLabelContagemM.setText("jLabel9");
         jPanel1.add(jLabelContagemM);
-        jLabelContagemM.setBounds(130, 270, 170, 14);
+        jLabelContagemM.setBounds(130, 270, 170, 15);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 400, 320);
@@ -293,7 +293,7 @@ public class TelaEstMesTabela extends javax.swing.JFrame {
         getContentPane().add(jLabelContagem);
         jLabelContagem.setBounds(110, 260, 160, 70);
 
-        setSize(new java.awt.Dimension(398, 335));
+        setSize(new java.awt.Dimension(394, 335));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

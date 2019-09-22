@@ -63,7 +63,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(490, 90, 160, 50);
+        jButton1.setBounds(490, 90, 170, 50);
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Administrador");
@@ -74,7 +74,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(490, 170, 160, 50);
+        jButton2.setBounds(490, 170, 170, 50);
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton3.setText("Estatísticas");
@@ -85,7 +85,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(290, 170, 160, 50);
+        jButton3.setBounds(280, 170, 170, 50);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("Nova Monitoria");
@@ -96,7 +96,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(290, 90, 160, 50);
+        jButton4.setBounds(280, 90, 170, 50);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET1.png"))); // NOI18N
         jPanel1.add(jLabel3);
@@ -179,7 +179,7 @@ public class TelaPrincipalPET extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setSize(new java.awt.Dimension(716, 331));
+        setSize(new java.awt.Dimension(709, 327));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

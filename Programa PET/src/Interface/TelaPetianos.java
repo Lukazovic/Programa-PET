@@ -113,7 +113,7 @@ public class TelaPetianos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(220, 270, 80, 28);
+        jButton1.setBounds(180, 270, 120, 31);
 
         jButton2.setBackground(new java.awt.Color(0, 0, 204));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,28 +124,28 @@ public class TelaPetianos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(210, 420, 80, 28);
+        jButton2.setBounds(180, 420, 110, 31);
 
         txtNomeMonitor.setToolTipText("Nome do novo monitor - Máximo 30 caracteres");
         jPanel1.add(txtNomeMonitor);
-        txtNomeMonitor.setBounds(50, 370, 130, 28);
+        txtNomeMonitor.setBounds(50, 370, 130, 30);
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nome:");
         jLabel3.setToolTipText("Nome do novo monitor - Máximo 30 caracteres");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 350, 150, 16);
+        jLabel3.setBounds(50, 350, 150, 15);
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Adicionar Monitor");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(111, 320, 180, 19);
+        jLabel4.setBounds(111, 320, 180, 17);
 
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("RA:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(200, 350, 90, 16);
+        jLabel5.setBounds(200, 350, 90, 15);
 
         try {
             txtRAmonitor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
@@ -153,7 +153,7 @@ public class TelaPetianos extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         jPanel1.add(txtRAmonitor);
-        txtRAmonitor.setBounds(200, 370, 90, 28);
+        txtRAmonitor.setBounds(200, 370, 90, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(-20, 0, 420, 510);

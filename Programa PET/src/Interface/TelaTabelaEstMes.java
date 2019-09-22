@@ -157,7 +157,7 @@ public class TelaTabelaEstMes extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Estatísticas");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(340, 60, 150, 50);
+        jLabel2.setBounds(340, 60, 240, 50);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -188,13 +188,13 @@ public class TelaTabelaEstMes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(0, 160, 630, 120);
+        jScrollPane1.setBounds(10, 160, 630, 120);
 
         jLabel3.setText("Obs: Valores em %");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(480, 280, 110, 14);
+        jLabel3.setBounds(420, 280, 170, 15);
 
-        setBounds(0, 0, 644, 378);
+        setBounds(0, 0, 654, 378);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

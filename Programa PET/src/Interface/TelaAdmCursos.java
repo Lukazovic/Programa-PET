@@ -126,7 +126,7 @@ public class TelaAdmCursos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(220, 270, 80, 28);
+        jButton1.setBounds(200, 270, 100, 31);
 
         jButton2.setBackground(new java.awt.Color(0, 0, 204));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,23 +137,23 @@ public class TelaAdmCursos extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(210, 420, 80, 28);
+        jButton2.setBounds(194, 420, 96, 31);
 
         txtNomeCurso.setToolTipText("Nome do novo monitor - Máximo 30 caracteres");
         jPanel1.add(txtNomeCurso);
-        txtNomeCurso.setBounds(50, 370, 240, 28);
+        txtNomeCurso.setBounds(50, 370, 240, 30);
 
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Nome do Curso:");
         jLabel3.setToolTipText("Nome do novo monitor - Máximo 30 caracteres");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 350, 230, 16);
+        jLabel3.setBounds(50, 350, 230, 15);
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Adicionar Curso");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(111, 320, 180, 19);
+        jLabel4.setBounds(111, 320, 180, 17);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(-20, 0, 420, 510);

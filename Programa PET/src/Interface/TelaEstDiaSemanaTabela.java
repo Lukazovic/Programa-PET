@@ -215,68 +215,68 @@ public class TelaEstDiaSemanaTabela extends javax.swing.JFrame {
 
         jLabelDom1.setText("Domingo:");
         jPanel1.add(jLabelDom1);
-        jLabelDom1.setBounds(90, 140, 60, 14);
+        jLabelDom1.setBounds(70, 140, 80, 15);
 
         jLabelSeg1.setText("Segunda:");
         jPanel1.add(jLabelSeg1);
-        jLabelSeg1.setBounds(90, 160, 60, 14);
+        jLabelSeg1.setBounds(70, 160, 80, 15);
 
         jLabelTer1.setText("Terça:");
         jPanel1.add(jLabelTer1);
-        jLabelTer1.setBounds(90, 180, 60, 14);
+        jLabelTer1.setBounds(70, 180, 80, 15);
 
         jLabelQua1.setText("Quarta:");
         jPanel1.add(jLabelQua1);
-        jLabelQua1.setBounds(90, 200, 60, 14);
+        jLabelQua1.setBounds(70, 200, 80, 15);
 
         jLabelQui1.setText("Quinta:");
         jPanel1.add(jLabelQui1);
-        jLabelQui1.setBounds(90, 220, 60, 14);
+        jLabelQui1.setBounds(70, 220, 80, 15);
 
         jLabelSex1.setText("Sexta:");
         jPanel1.add(jLabelSex1);
-        jLabelSex1.setBounds(90, 240, 60, 14);
+        jLabelSex1.setBounds(70, 240, 80, 15);
 
         jLabelSex.setText("jLabel8");
         jPanel1.add(jLabelSex);
-        jLabelSex.setBounds(170, 240, 34, 14);
+        jLabelSex.setBounds(170, 240, 80, 15);
 
         jLabelDom.setText("jLabel3");
         jPanel1.add(jLabelDom);
-        jLabelDom.setBounds(170, 140, 34, 14);
+        jLabelDom.setBounds(170, 140, 70, 15);
 
         jLabelSeg.setText("jLabel4");
         jPanel1.add(jLabelSeg);
-        jLabelSeg.setBounds(170, 160, 34, 14);
+        jLabelSeg.setBounds(170, 160, 70, 15);
 
         jLabelTer.setText("jLabel5");
         jPanel1.add(jLabelTer);
-        jLabelTer.setBounds(170, 180, 34, 14);
+        jLabelTer.setBounds(170, 180, 70, 15);
 
         jLabelQuar.setText("jLabel6");
         jPanel1.add(jLabelQuar);
-        jLabelQuar.setBounds(170, 200, 34, 14);
+        jLabelQuar.setBounds(170, 200, 80, 15);
 
         jLabelQui.setText("jLabel7");
         jPanel1.add(jLabelQui);
-        jLabelQui.setBounds(170, 220, 34, 14);
+        jLabelQui.setBounds(170, 220, 80, 15);
 
         jLabelAno.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelAno.setText("2019");
         jPanel1.add(jLabelAno);
-        jLabelAno.setBounds(170, 80, 50, 22);
+        jLabelAno.setBounds(170, 80, 90, 22);
 
         jLabelSab1.setText("Sábado:");
         jPanel1.add(jLabelSab1);
-        jLabelSab1.setBounds(90, 260, 60, 14);
+        jLabelSab1.setBounds(70, 260, 80, 15);
 
         jLabelSab.setText("jLabel10");
         jPanel1.add(jLabelSab);
-        jLabelSab.setBounds(170, 260, 40, 14);
+        jLabelSab.setBounds(170, 260, 90, 15);
 
         jLabelContagem.setText("jLabel2");
         jPanel1.add(jLabelContagem);
-        jLabelContagem.setBounds(110, 300, 160, 14);
+        jLabelContagem.setBounds(110, 300, 160, 15);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 320, 360);

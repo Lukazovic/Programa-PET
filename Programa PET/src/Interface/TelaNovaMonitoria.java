@@ -141,15 +141,15 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Cadastrar Nova Monitoria");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(50, 110, 340, 30);
+        jLabel2.setBounds(30, 110, 360, 30);
 
         jComboBoxMonitor2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Segundo Monitor" }));
         jPanel1.add(jComboBoxMonitor2);
-        jComboBoxMonitor2.setBounds(220, 180, 130, 20);
+        jComboBoxMonitor2.setBounds(220, 180, 130, 25);
 
         jLabel3.setText("Monitores:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(50, 160, 60, 14);
+        jLabel3.setBounds(50, 160, 100, 15);
 
         jComboBoxMonitor1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Monitor" }));
         jComboBoxMonitor1.addActionListener(new java.awt.event.ActionListener() {
@@ -158,25 +158,25 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jComboBoxMonitor1);
-        jComboBoxMonitor1.setBounds(50, 180, 130, 20);
+        jComboBoxMonitor1.setBounds(50, 180, 130, 25);
 
         jComboBoxMonitor3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Terceiro Monitor" }));
         jPanel1.add(jComboBoxMonitor3);
-        jComboBoxMonitor3.setBounds(50, 210, 130, 20);
+        jComboBoxMonitor3.setBounds(50, 210, 130, 25);
 
         jComboBoxMonitor4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quarto Monitor" }));
         jPanel1.add(jComboBoxMonitor4);
-        jComboBoxMonitor4.setBounds(220, 210, 130, 20);
+        jComboBoxMonitor4.setBounds(220, 210, 130, 25);
 
         jLabel4.setText("Nome do Aluno:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(50, 240, 130, 14);
+        jLabel4.setBounds(50, 240, 130, 15);
         jPanel1.add(txtNomeAluno);
         txtNomeAluno.setBounds(50, 260, 170, 30);
 
         jComboBoxCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Curso do Aluno" }));
         jPanel1.add(jComboBoxCurso);
-        jComboBoxCurso.setBounds(50, 300, 170, 20);
+        jComboBoxCurso.setBounds(50, 300, 170, 25);
 
         jComboBoxMateria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Matéria" }));
         jComboBoxMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -185,11 +185,11 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jComboBoxMateria);
-        jComboBoxMateria.setBounds(240, 300, 110, 20);
+        jComboBoxMateria.setBounds(240, 300, 110, 25);
 
         jLabel5.setText("Local:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(240, 240, 60, 14);
+        jLabel5.setBounds(240, 240, 60, 15);
         jPanel1.add(txtLocal);
         txtLocal.setBounds(240, 260, 110, 30);
 
@@ -200,11 +200,11 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jRadioButtonHora);
-        jRadioButtonHora.setBounds(50, 340, 300, 23);
+        jRadioButtonHora.setBounds(50, 340, 300, 28);
 
         jLabel6.setText("Hora:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(90, 370, 50, 14);
+        jLabel6.setBounds(90, 370, 50, 15);
 
         try {
             txtHora.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##:##")));
@@ -216,7 +216,7 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
 
         jLabel7.setText("Data:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(210, 370, 60, 14);
+        jLabel7.setBounds(210, 370, 60, 15);
 
         try {
             txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
@@ -240,14 +240,14 @@ public class TelaNovaMonitoria extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalvarDados);
-        btnSalvarDados.setBounds(280, 450, 69, 23);
+        btnSalvarDados.setBounds(259, 450, 90, 31);
 
         jScrollPane1.setViewportView(jPanel1);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(0, 0, 410, 560);
 
-        setSize(new java.awt.Dimension(416, 551));
+        setSize(new java.awt.Dimension(409, 551));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

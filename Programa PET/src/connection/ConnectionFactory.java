@@ -15,9 +15,11 @@ import java.util.logging.Logger;
 public class ConnectionFactory {
     
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/pet";
+    //private static final String URL = "jdbc:mysql://localhost:3306/pet";
+    private static final String URL = "jdbc:mysql://0.0.0.0:3306/pet";
     private static final String USER = "root";
-    private static final String PASS = "";
+    //private static final String PASS = "";
+    private static final String PASS = "111924slm";
     
     public static Connection getConnection (){
         try {

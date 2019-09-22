@@ -293,7 +293,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
         jLabel2.setText("Dados - Monitoria PET Física");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(420, 60, 334, 32);
+        jLabel2.setBounds(420, 60, 379, 29);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET2.png"))); // NOI18N
@@ -302,24 +302,24 @@ public class TelaTabelaDados extends javax.swing.JFrame {
 
         jLabel3.setText("Buscar por Monitor:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(200, 330, 120, 20);
+        jLabel3.setBounds(200, 330, 150, 20);
 
         jLabel4.setText("Buscar por Curso:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(200, 390, 120, 16);
+        jLabel4.setBounds(200, 390, 150, 15);
 
         jLabel5.setText("Buscar por Matéria:");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(510, 330, 120, 20);
+        jLabel5.setBounds(510, 330, 150, 20);
 
         jLabel6.setText("Buscar por data:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(510, 390, 120, 16);
+        jLabel6.setBounds(510, 390, 150, 15);
 
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         jLabel7.setText("Ano - Mês - Dia");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(530, 440, 90, 14);
+        jLabel7.setBounds(530, 440, 90, 13);
 
         txtBuscaMonitor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -400,7 +400,7 @@ public class TelaTabelaDados extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 920, 470);
 
-        setSize(new java.awt.Dimension(927, 511));
+        setSize(new java.awt.Dimension(920, 492));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

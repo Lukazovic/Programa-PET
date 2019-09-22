@@ -60,15 +60,15 @@ public class TelaAutenticacaoADM extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnEntrar);
-        btnEntrar.setBounds(190, 310, 73, 26);
+        btnEntrar.setBounds(190, 310, 73, 30);
 
         jLabel2.setText("Senha:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(40, 230, 41, 16);
+        jLabel2.setBounds(40, 230, 220, 15);
 
         jLabel1.setText("Usuário");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(40, 170, 99, 16);
+        jLabel1.setBounds(40, 170, 220, 15);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET3.png"))); // NOI18N
         jPanel1.add(jLabel4);
@@ -99,7 +99,7 @@ public class TelaAutenticacaoADM extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 320, 370);
 
-        setSize(new java.awt.Dimension(316, 401));
+        setSize(new java.awt.Dimension(316, 396));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

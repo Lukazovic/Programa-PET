@@ -296,7 +296,7 @@ public class TelaAdmDados extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setText("Remover Monitorias - PET");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(420, 60, 300, 32);
+        jLabel2.setBounds(420, 60, 345, 29);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET2.png"))); // NOI18N
@@ -309,7 +309,7 @@ public class TelaAdmDados extends javax.swing.JFrame {
 
         jLabel4.setText("Buscar por Curso:");
         jPanel2.add(jLabel4);
-        jLabel4.setBounds(200, 430, 120, 16);
+        jLabel4.setBounds(200, 430, 120, 15);
 
         jLabel5.setText("Buscar por Matéria:");
         jPanel2.add(jLabel5);
@@ -317,12 +317,12 @@ public class TelaAdmDados extends javax.swing.JFrame {
 
         jLabel6.setText("Buscar por data:");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(510, 430, 120, 16);
+        jLabel6.setBounds(510, 430, 120, 15);
 
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 10)); // NOI18N
         jLabel7.setText("Ano - Mês - Dia");
         jPanel2.add(jLabel7);
-        jLabel7.setBounds(530, 480, 90, 14);
+        jLabel7.setBounds(530, 480, 90, 13);
 
         txtBuscaMonitor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -414,7 +414,7 @@ public class TelaAdmDados extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 920, 520);
 
-        setSize(new java.awt.Dimension(927, 555));
+        setSize(new java.awt.Dimension(923, 547));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

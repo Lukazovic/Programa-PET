@@ -58,7 +58,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("Estatísticas");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(300, 60, 150, 20);
+        jLabel2.setBounds(300, 60, 270, 20);
 
         try {
             txtAnoMes.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####")));
@@ -84,7 +84,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnTabela);
-        btnTabela.setBounds(410, 160, 70, 30);
+        btnTabela.setBounds(400, 160, 90, 30);
 
         jRadioButtonMateria.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButtonMateria);
@@ -95,7 +95,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jRadioButtonMateria);
-        jRadioButtonMateria.setBounds(70, 160, 100, 18);
+        jRadioButtonMateria.setBounds(50, 160, 100, 28);
 
         jRadioButtonDSemana.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButtonDSemana);
@@ -106,7 +106,7 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jRadioButtonDSemana);
-        jRadioButtonDSemana.setBounds(70, 190, 120, 18);
+        jRadioButtonDSemana.setBounds(50, 190, 160, 28);
 
         jRadioButtonMes.setBackground(new java.awt.Color(255, 255, 255));
         buttonGroup1.add(jRadioButtonMes);
@@ -117,11 +117,11 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jRadioButtonMes);
-        jRadioButtonMes.setBounds(70, 220, 100, 18);
+        jRadioButtonMes.setBounds(50, 220, 100, 28);
 
         jLabel1.setText("Buscar por:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(80, 140, 80, 16);
+        jLabel1.setBounds(60, 140, 110, 15);
 
         jComboBoxMes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Janeiro", "Feveiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" }));
         jComboBoxMes.setToolTipText("");
@@ -131,11 +131,11 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
 
         jLabel3.setText("Mês:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(210, 140, 90, 16);
+        jLabel3.setBounds(210, 140, 90, 15);
 
         jLabel4.setText("Ano:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(330, 140, 50, 16);
+        jLabel4.setBounds(330, 140, 50, 15);
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImagensPET/LogoPET2.png"))); // NOI18N
         jPanel1.add(jLabel5);
@@ -151,12 +151,12 @@ public class TelaBuscaEstatisticas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnGrafico);
-        btnGrafico.setBounds(500, 160, 67, 30);
+        btnGrafico.setBounds(500, 160, 80, 30);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 640, 310);
 
-        setSize(new java.awt.Dimension(646, 328));
+        setSize(new java.awt.Dimension(640, 328));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

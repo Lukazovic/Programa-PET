@@ -185,19 +185,19 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Estatísticas por Semana");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(160, 20, 230, 24);
+        jLabel2.setBounds(130, 20, 260, 22);
 
         jLabelMes.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabelMes.setForeground(new java.awt.Color(0, 0, 0));
         jLabelMes.setText("jLabel3");
         jPanel1.add(jLabelMes);
-        jLabelMes.setBounds(210, 60, 140, 19);
+        jLabelMes.setBounds(210, 60, 140, 17);
 
         jLabelAno.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabelAno.setForeground(new java.awt.Color(0, 0, 0));
         jLabelAno.setText("jLabel3");
         jPanel1.add(jLabelAno);
-        jLabelAno.setBounds(230, 90, 100, 19);
+        jLabelAno.setBounds(230, 90, 100, 17);
 
         jTableMonitorias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -226,7 +226,7 @@ public class TelaEstMatTabela extends javax.swing.JFrame {
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 410, 310);
 
-        setSize(new java.awt.Dimension(416, 339));
+        setSize(new java.awt.Dimension(411, 333));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

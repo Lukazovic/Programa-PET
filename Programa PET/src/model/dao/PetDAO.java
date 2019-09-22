@@ -26,7 +26,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO dadospet (nomeMonitor1,nomeMonitor2,nomeMonitor3, nomeMonitor4, nomeAluno,cursoAluno,materiaAluno,localMonitoria,horaMonitoria,dataMonitoria)VALUES(?,?,?,?,?,?,?,?,?,?)");
+            stmt = con.prepareStatement("INSERT INTO dadosPET (nomeMonitor1,nomeMonitor2,nomeMonitor3, nomeMonitor4, nomeAluno,cursoAluno,materiaAluno,localMonitoria,horaMonitoria,dataMonitoria)VALUES(?,?,?,?,?,?,?,?,?,?)");
             stmt.setString(1, d.getNomeMonitor1());
             stmt.setString(2, d.getNomeMonitor2());
             stmt.setString(3, d.getNomeMonitor3());
@@ -57,7 +57,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -96,7 +96,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE nomeMonitor1 LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET WHERE nomeMonitor1 LIKE ?");
             stmt.setString(1, "%" + moni1 + "%");
 
             rs = stmt.executeQuery();
@@ -137,7 +137,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE nomeMonitor2 LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET WHERE nomeMonitor2 LIKE ?");
             stmt.setString(1, "%" + moni1 + "%");
 
             rs = stmt.executeQuery();
@@ -178,7 +178,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE nomeMonitor3 LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET WHERE nomeMonitor3 LIKE ?");
             stmt.setString(1, "%" + moni1 + "%");
 
             rs = stmt.executeQuery();
@@ -219,7 +219,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE nomeMonitor4 LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET WHERE nomeMonitor4 LIKE ?");
             stmt.setString(1, "%" + moni1 + "%");
 
             rs = stmt.executeQuery();
@@ -260,7 +260,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE cursoAluno LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET WHERE cursoAluno LIKE ?");
             stmt.setString(1, "%" + curso + "%");
 
             rs = stmt.executeQuery();
@@ -301,7 +301,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE materiaAluno LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET WHERE materiaAluno LIKE ?");
             stmt.setString(1, "%" + materia + "%");
 
             rs = stmt.executeQuery();
@@ -342,7 +342,7 @@ public class PetDAO {
         List<Dados> listaDados = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet WHERE dataMonitoria LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET WHERE dataMonitoria LIKE ?");
             stmt.setString(1, data + "%");
 
             rs = stmt.executeQuery();
@@ -408,7 +408,7 @@ public class PetDAO {
         Dados dado = new Dados();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM dadospet");
+            stmt = con.prepareStatement("SELECT * FROM dadosPET");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -443,7 +443,7 @@ public class PetDAO {
         List<Monitores> listaMonitores = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM monitorespet");
+            stmt = con.prepareStatement("SELECT * FROM monitoresPET");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -473,7 +473,7 @@ public class PetDAO {
         List<Cursos> listaCursos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM cursospet");
+            stmt = con.prepareStatement("SELECT * FROM cursosPET");
             rs = stmt.executeQuery();
 
             while (rs.next()) {
@@ -525,7 +525,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM monitorespet WHERE RA = ?");
+            stmt = con.prepareStatement("DELETE FROM monitoresPET WHERE RA = ?");
             stmt.setString(1, monitor.getRAmonitor());
 
             stmt.executeUpdate();
@@ -543,7 +543,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO monitorespet (RA,nomeMonitor)VALUES(?,?)");
+            stmt = con.prepareStatement("INSERT INTO monitoresPET (RA,nomeMonitor)VALUES(?,?)");
             stmt.setString(1, monitor.getRAmonitor());
             stmt.setString(2, monitor.getNomeMonitor());
 
@@ -562,7 +562,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM dadospet WHERE contagemMonitorias = ?");
+            stmt = con.prepareStatement("DELETE FROM dadosPET WHERE contagemMonitorias = ?");
             stmt.setString(1, String.valueOf(d.getContagemMonitoria()));
 
             stmt.executeUpdate();
@@ -580,7 +580,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO cursospet (cursoCadastrado)VALUES(?)");
+            stmt = con.prepareStatement("INSERT INTO cursosPET (cursoCadastrado)VALUES(?)");
             stmt.setString(1, curso.getCursoCadastrado());
 
             stmt.executeUpdate();
@@ -598,7 +598,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM cursospet WHERE cursoCadastrado = ?");
+            stmt = con.prepareStatement("DELETE FROM cursosPET WHERE cursoCadastrado = ?");
             stmt.setString(1, curso.getCursoCadastrado());
 
             stmt.executeUpdate();
@@ -616,7 +616,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("INSERT INTO materiaspet (materiaCadastrada)VALUES(?)");
+            stmt = con.prepareStatement("INSERT INTO materiasPET (materiaCadastrada)VALUES(?)");
             stmt.setString(1, materia.getMateriasCadastradas());
 
             stmt.executeUpdate();
@@ -634,7 +634,7 @@ public class PetDAO {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM materiaspet WHERE materiaCadastrada = ?");
+            stmt = con.prepareStatement("DELETE FROM materiasPET WHERE materiaCadastrada = ?");
             stmt.setString(1, materia.getMateriasCadastradas());
 
             stmt.executeUpdate();
