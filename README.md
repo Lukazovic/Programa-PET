@@ -16,6 +16,7 @@ Tela principal do aplicativo desktop, onde é possível ter acesso a novo cadast
 
 ### Tela para Cadastro de Novas Monitorias
 A tela de cadastro traz funcionalidades de seleção de até 4 monitores cadastrados no programa por monitoria, adicionar o nome do aluno ajudado, o local da monitoria, o curso do aluno, a matéria da monitoria e armazenar o horário da monitoria (com opção de adicionar o horário atual automaticamente).
+
 ![Tela Nova Monitoria](https://github.com/Lukazovic/Programa-PET/blob/master/Imagens%20programa%20PET/Tela%20nova%20monitoria.png)
 
 ### Tabela de Dados Cadastrados
